@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class Obstacles : AProps
 {
-    public override bool AskInputs()
-    {
-
-    }
+    
 }

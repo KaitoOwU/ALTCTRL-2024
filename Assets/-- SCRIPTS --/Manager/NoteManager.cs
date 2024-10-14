@@ -96,6 +96,58 @@ public static class CustomMidi
                 throw new ArgumentOutOfRangeException(nameof(midiKey), midiKey, null);
         }
     }
+    
+    public static bool GetKey(MidiKey midiKey)
+    {
+        switch (midiKey)
+        {
+            case MidiKey.LEFT_WHITE:
+                return MidiMaster.GetKey(0) > 0f ||
+                       MidiMaster.GetKey(2) > 0f ||
+                       MidiMaster.GetKey(4) > 0f ||
+                       MidiMaster.GetKey(5) > 0f ||
+                       MidiMaster.GetKey(7) > 0f ||
+                       MidiMaster.GetKey(9) > 0f ||
+                       MidiMaster.GetKey(11) > 0f;
+            case MidiKey.RIGHT_WHITE:
+                return MidiMaster.GetKey(12) > 0f ||
+                       MidiMaster.GetKey(14) > 0f ||
+                       MidiMaster.GetKey(16) > 0f ||
+                       MidiMaster.GetKey(17) > 0f ||
+                       MidiMaster.GetKey(19) > 0f ||
+                       MidiMaster.GetKey(21) > 0f ||
+                       MidiMaster.GetKey(23) > 0f ||
+                       MidiMaster.GetKey(24) > 0f;
+            case MidiKey.FIRST_BLACK:
+                return MidiMaster.GetKey(1) > 0f ||
+                       MidiMaster.GetKey(3) > 0f;
+            case MidiKey.SECOND_BLACK:
+                return MidiMaster.GetKey(6) > 0f ||
+                       MidiMaster.GetKey(8) > 0f ||
+                       MidiMaster.GetKey(10) > 0f;
+            case MidiKey.THIRD_BLACK:
+                return MidiMaster.GetKey(13) > 0f ||
+                       MidiMaster.GetKey(15) > 0f;
+            case MidiKey.FOURTH_BLACK:
+                return MidiMaster.GetKey(18) > 0f ||
+                       MidiMaster.GetKey(20) > 0f ||
+                       MidiMaster.GetKey(22) > 0f;
+            case MidiKey.PAD_1:
+                return MidiMaster.GetKey(36) > 0f ||
+                       MidiMaster.GetKey(40) > 0f;
+            case MidiKey.PAD_2:
+                return MidiMaster.GetKey(37) > 0f ||
+                       MidiMaster.GetKey(41) > 0f;
+            case MidiKey.PAD_3:
+                return MidiMaster.GetKey(38) > 0f ||
+                       MidiMaster.GetKey(42) > 0f;
+            case MidiKey.PAD_4:
+                return MidiMaster.GetKey(39) > 0f ||
+                       MidiMaster.GetKey(43) > 0f;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(midiKey), midiKey, null);
+        }
+    }
 
     public enum MidiKey
     {
