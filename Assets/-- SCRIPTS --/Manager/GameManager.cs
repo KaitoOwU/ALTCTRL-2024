@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public Transform SpawnPoint { get; private set; } //TEMP
 
     [SerializeField] private GameObject _npcPrefab;
+    [SerializeField] private GameObject _wallPrefab;
 
     private void Awake()
     {
@@ -29,7 +30,18 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            GameObject go = Instantiate(_npcPrefab, SpawnPoint.position, Quaternion.identity);
+            bool isNPC = Random.Range(0, 2) == 0;
+            GameObject go;
+
+            if (isNPC)
+            {
+                go = Instantiate(_npcPrefab, SpawnPoint.position, Quaternion.identity);
+            }
+            else
+            {
+                go = Instantiate(_wallPrefab, SpawnPoint.position, Quaternion.identity);
+            }
+            
             yield return new WaitUntil(() => !go);
             yield return new WaitForSeconds(Random.Range(0f, 3f));
         }
