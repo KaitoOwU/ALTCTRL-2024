@@ -1,10 +1,8 @@
 using System;
-using AudioHelm;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using UnityEditor;
 using UnityEngine;
-using MidiFile = Melanchall.DryWetMidi.Core.MidiFile;
 
 [EditorWindowTitle(title = "Level Creator", icon = "Assets/-- SCRIPTS --/Editor/levelEditorLogo.png")]
 public class LevelEditorWindow : EditorWindow
@@ -61,7 +59,7 @@ public class LevelEditorWindow : EditorWindow
                     GUI.backgroundColor = Color.green;
                     if (GUILayout.Button("Create Soundtracker", new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleCenter, fixedWidth = 250, fixedHeight = 50, fontSize = 20, fontStyle = FontStyle.Bold}))
                     {
-                        SoundtrackerEditor.Init(midi);
+                        SoundtrackerEditor.Init(midi, _bpm);
                         this.Close();
                     }
                     GUILayout.FlexibleSpace();
