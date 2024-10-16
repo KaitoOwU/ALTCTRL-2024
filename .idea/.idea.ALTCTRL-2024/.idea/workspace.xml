@@ -6,15 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b88c5e58-6aa1-40bd-a451-8507875c6758" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/WALL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/WALL.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/WALL.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/WALL.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Wall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Wall.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Wall.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAuraMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAuraMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Editor/KSI - Thick Of It (feat. Trippie Redd) [Official Music Video].mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Editor/KSI - Thick Of It (feat. Trippie Redd) [Official Music Video].mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Editor/LevelEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Editor/LevelEditorWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test/Can't Stop - Red Hot Chili Peppers.mid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test/Can't Stop - Red Hot Chili Peppers.mid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test/test.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test/test.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Kevin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Kevin.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +29,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/577d1e7505134db78650179a89fa5737b0c00/f4/77c4bf68/MidiFile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NPC.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/test.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -101,7 +102,9 @@
       <option name="presentableId" value="Default" />
       <updated>1728976604773</updated>
       <workItem from="1728976610137" duration="8569000" />
-      <workItem from="1729062850083" duration="1789000" />
+      <workItem from="1729062850083" duration="11021000" />
+      <workItem from="1729079570734" duration="61000" />
+      <workItem from="1729079668247" duration="7713000" />
     </task>
     <servers />
   </component>
