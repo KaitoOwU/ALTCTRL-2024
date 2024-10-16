@@ -104,9 +104,9 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _Radius: 0.23
+    - _Radius: 0.37
     - _ReceiveShadows: 1
-    - _RemainingColor: 0.25
+    - _RemainingColor: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
