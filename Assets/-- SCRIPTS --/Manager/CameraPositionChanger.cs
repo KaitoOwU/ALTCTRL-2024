@@ -11,14 +11,18 @@ public class CameraPositionChanger : MonoBehaviour
     Dictionary<CameraPosition, float> _zoomDict;
 
     [Header("Camera Positions")]
-    [SerializeField] private Vector3 _nearPosition;
-    [SerializeField] private Vector3 _normalPosition;
-    [SerializeField] private Vector3 _farPosition;
+    [SerializeField] private Vector3 _posOne;
+    [SerializeField] private Vector3 _posTwo;
+    [SerializeField] private Vector3 _posThree;
+    [SerializeField] private Vector3 _posFour;
+    [SerializeField] private Vector3 _posFive;
 
     [Header("Camera Zooms")]
-    [SerializeField] private float _nearZoom;
-    [SerializeField] private float _normalZoom;
-    [SerializeField] private float _farZoom;
+    [SerializeField] private float _zoomOne;
+    [SerializeField] private float _zoomTwo;
+    [SerializeField] private float _zoomThree;
+    [SerializeField] private float _zoomFour;
+    [SerializeField] private float _zoomFive;
 
     private void Start()
     {
@@ -26,44 +30,37 @@ public class CameraPositionChanger : MonoBehaviour
 
         _posDict = new()
         {
-            { CameraPosition.NEAR, _nearPosition },
-            { CameraPosition.NORMAL, _normalPosition },
-            { CameraPosition.FAR, _farPosition }
+            { CameraPosition.FIRST, _posOne },
+            { CameraPosition.SECOND, _posTwo },
+            { CameraPosition.THIRD, _posThree },
+            { CameraPosition.FOURTH, _posFour },
+            { CameraPosition.FIFTH, _posFive }
         };
 
         _zoomDict = new()
         {
-            { CameraPosition.NEAR, _nearZoom },
-            { CameraPosition.NORMAL, _normalZoom },
-            { CameraPosition.FAR, _farZoom }
+            { CameraPosition.FIRST, _zoomOne },
+            { CameraPosition.SECOND, _zoomTwo },
+            { CameraPosition.THIRD, _zoomThree },
+            { CameraPosition.FOURTH, _zoomFour },
+            { CameraPosition.FIFTH, _zoomFive }
         };
     }
 
     [Serializable]
     public enum CameraPosition
     {
-        NEAR,
-        NORMAL,
-        FAR
+        FIRST,
+        SECOND,
+        THIRD,
+        FOURTH,
+        FIFTH
     }
 
     public void ChangeCameraPosition(CameraPosition position)
     {
-        switch (position)
-        {
-            case CameraPosition.NEAR:
-                _cam.gameObject.transform.DOMove(_posDict[CameraPosition.NEAR], 0.5f);
-                _cam.DOOrthoSize(_zoomDict[CameraPosition.NEAR], 0.5f);
-                break;
-            case CameraPosition.NORMAL:
-                _cam.gameObject.transform.DOMove(_posDict[CameraPosition.NORMAL], 0.5f);
-                _cam.DOOrthoSize(_zoomDict[CameraPosition.NORMAL], 0.5f);
-                break;
-            case CameraPosition.FAR:
-                _cam.gameObject.transform.DOMove(_posDict[CameraPosition.FAR], 0.5f);
-                _cam.DOOrthoSize(_zoomDict[CameraPosition.FAR], 0.5f);
-                break;
-        }
+        _cam.gameObject.transform.DOMove(_posDict[position], 0.4f).SetEase(Ease.OutElastic, 2f, 0.8f);
+        _cam.DOOrthoSize(_zoomDict[position], 0.5f).SetEase(Ease.OutElastic, 1.6f, 0.8f);
     }
 
     private void Update()
@@ -71,15 +68,23 @@ public class CameraPositionChanger : MonoBehaviour
 #if ENABLE_LEGACY_INPUT_MANAGER
         if (Input.GetKeyDown(KeyCode.R))
         {
-            ChangeCameraPosition(CameraPosition.NEAR);
+            ChangeCameraPosition(CameraPosition.FIRST);
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
-            ChangeCameraPosition(CameraPosition.NORMAL);
+            ChangeCameraPosition(CameraPosition.SECOND);
         }
         else if (Input.GetKeyDown(KeyCode.Y))
         {
-            ChangeCameraPosition(CameraPosition.FAR);
+            ChangeCameraPosition(CameraPosition.THIRD);
+        }
+        else if (Input.GetKeyDown(KeyCode.U))
+        {
+            ChangeCameraPosition(CameraPosition.FOURTH);
+        }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            ChangeCameraPosition(CameraPosition.FIFTH);
         }
     }
 #endif
