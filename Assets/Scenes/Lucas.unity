@@ -185,7 +185,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 776824}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 4, y: 2.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -272,12 +272,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bacf219d887fb4299878f65589a2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nearPosition: {x: 0, y: 0, z: -10}
-  _normalPosition: {x: 6.53, y: 3.87, z: -10}
-  _farPosition: {x: 16.27, y: 6.97, z: -10}
-  _nearZoom: 5
-  _normalZoom: 10
-  _farZoom: 17.5
+  _posOne: {x: 0.34, y: -0.74, z: -10}
+  _posTwo: {x: 4, y: 2.8, z: -10}
+  _posThree: {x: 8.4, y: 4.5, z: -10}
+  _posFour: {x: 16.8, y: 9.5, z: -10}
+  _posFive: {x: 25.9, y: 14.44, z: -10}
+  _zoomOne: 5
+  _zoomTwo: 7.5
+  _zoomThree: 10
+  _zoomFour: 15
+  _zoomFive: 20
 --- !u!1 &247292702
 GameObject:
   m_ObjectHideFlags: 0
