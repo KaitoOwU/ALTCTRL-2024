@@ -17,7 +17,7 @@ MonoBehaviour:
     m_End: 45
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: e89d301d9ef237a4198ead944281f16a, type: 3}
+    - {fileID: 21300000, guid: ab00bc590f1862c47a84bc15a67dfe64, type: 3}
   - m_Start: 45
     m_End: 135
     m_Order: 0
@@ -37,16 +37,16 @@ MonoBehaviour:
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 64c22c8dc8cc0ec4b99a5510bdd7d30d, type: 3}
+    - {fileID: 21300000, guid: 5320c980a4c4f6140a1a32ab2bada394, type: 3}
   - m_CornerType: 1
     m_Sprites:
-    - {fileID: 21300000, guid: 0161389456a7b90428e67b5c3492953e, type: 3}
+    - {fileID: 21300000, guid: 5714b2ffddd9b2d4fb7decf9609c57f5, type: 3}
   - m_CornerType: 2
     m_Sprites:
-    - {fileID: 21300000, guid: 7e07c55fa481f994ea6cff55d75aa8e2, type: 3}
+    - {fileID: 21300000, guid: 2841fe73f7d40694fb1fec4f788244ed, type: 3}
   - m_CornerType: 3
     m_Sprites:
-    - {fileID: 21300000, guid: 7e07c55fa481f994ea6cff55d75aa8e2, type: 3}
+    - {fileID: 21300000, guid: 73ee948f585d1d446a8686ed34cfa058, type: 3}
   - m_CornerType: 4
     m_Sprites:
     - {fileID: 21300000, guid: a7d5c1a40c7818c42bba74b7c9a21683, type: 3}
