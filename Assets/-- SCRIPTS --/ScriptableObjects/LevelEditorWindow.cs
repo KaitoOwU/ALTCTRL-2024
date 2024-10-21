@@ -1,17 +1,24 @@
 using System;
+using System.Linq;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using UnityEditor;
 using UnityEngine;
 
-[EditorWindowTitle(title = "Level Creator", icon = "Assets/-- SCRIPTS --/Editor/levelEditorLogo.png")]
+[EditorWindowTitle(title = "Soundtracker Creator", icon = "Assets/-- SCRIPTS --/Editor/levelEditorLogo.png")]
 public class LevelEditorWindow : EditorWindow
 {
     private DefaultAsset _audioClip;
-    private int _bpm;
 
-    [MenuItem("Window/Level Editor")]
+    [MenuItem("Assets/Create/Soundtracker", false, 1)]
     public static void Init()
+    {
+        LevelEditorWindow window = GetWindowWithRect<LevelEditorWindow>(new Rect(0, 0, 400, 400), false);
+        window.Show();
+    }
+    
+    [MenuItem("Tools/Soundtracker Creator")]
+    public static void Init2()
     {
         LevelEditorWindow window = GetWindowWithRect<LevelEditorWindow>(new Rect(0, 0, 400, 400), false);
         window.Show();
@@ -38,19 +45,28 @@ public class LevelEditorWindow : EditorWindow
             _audioClip = EditorGUILayout.ObjectField(".MID File", _audioClip, typeof(DefaultAsset), false) as DefaultAsset;
             if (_audioClip)
             {
-                if(AssetDatabase.GetAssetPath(_audioClip).EndsWith(".mid") == false)
+                if (AssetDatabase.GetAssetPath(_audioClip).EndsWith(".mid") == false)
+                {
                     _audioClip = null;
-                
+                }
             }
             
-            _bpm = Math.Clamp(EditorGUILayout.IntField("BPM", _bpm), 1, int.MaxValue);
-
             if (_audioClip)
             {
                 MidiFile midi = MidiFile.Read(AssetDatabase.GetAssetPath(_audioClip));
+                var time = midi.GetDuration<MetricTimeSpan>();
                 
                 GUILayout.Space(10);
-                GUILayout.Label("Ratio : " + midi.TimeDivision);
+                GUILayout.Label("Duration : " + time.Minutes + ":" + time.Seconds);
+                GUILayout.Space(10);
+                
+                GUILayout.Label("Layers detected : " + midi.GetChannels().Count());
+                string channels = string.Empty;
+                foreach(var channel in midi.GetChannels().OrderBy(x => x))
+                {
+                    channels += channel + "   ";
+                }
+                GUILayout.Label(channels);
                 
                 GUILayout.FlexibleSpace();
                 EditorGUILayout.BeginHorizontal();
@@ -59,7 +75,17 @@ public class LevelEditorWindow : EditorWindow
                     GUI.backgroundColor = Color.green;
                     if (GUILayout.Button("Create Soundtracker", new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleCenter, fixedWidth = 250, fixedHeight = 50, fontSize = 20, fontStyle = FontStyle.Bold}))
                     {
-                        SoundtrackerEditor.Init(midi, _bpm);
+                        var soundTracker = ScriptableObject.CreateInstance<Soundtracker>();
+                        soundTracker.path = AssetDatabase.GetAssetPath(_audioClip);
+                        AssetDatabase.CreateAsset(soundTracker, "Assets/Resources/Soundtrackers/" + _audioClip.name + ".asset");
+
+                        soundTracker.Setup();
+
+                        Selection.activeObject = soundTracker;
+                        EditorGUIUtility.PingObject(soundTracker);
+                        
+                        SoundtrackerEditor.Init(soundTracker);
+                        EditorUtility.SetDirty(soundTracker);
                         this.Close();
                     }
                     GUILayout.FlexibleSpace();

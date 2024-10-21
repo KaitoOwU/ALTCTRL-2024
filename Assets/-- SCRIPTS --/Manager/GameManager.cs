@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -17,6 +18,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _npcPrefab;
     [SerializeField] private GameObject _wallPrefab;
 
+    [SerializeField] private TMP_Text _valueOfMusicYippie;
+    [SerializeField] private Soundtracker _soundtracker;
+    [SerializeField] private AudioSource _audioSource;
+    private void Update()
+    {
+        _valueOfMusicYippie.text = _soundtracker.curves[0].curve.Evaluate(_audioSource.time).ToString();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(_valueOfMusicYippie.text);
+        }
+    }
+
     private void Awake()
     {
         if (Instance != null)
@@ -24,6 +38,9 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         StartCoroutine(GameLoop());
+        
+        _audioSource.clip = _soundtracker.audioClip;
+        _audioSource.Play();
     }
 
     public IEnumerator GameLoop()
