@@ -1148,6 +1148,7 @@ MonoBehaviour:
   - {fileID: 3350220016904240440, guid: ffb3e9d1677582646bb57fc844c7ff04, type: 3}
   - {fileID: 6430491619311679996, guid: 120b9d4ed4c55d9458c2773c94b43e62, type: 3}
   initialPlatformCount: 5
+  layer: 0
 --- !u!4 &2006251427
 Transform:
   m_ObjectHideFlags: 0
