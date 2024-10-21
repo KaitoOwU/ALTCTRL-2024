@@ -6,21 +6,27 @@ public class PlatformManager : MonoBehaviour
 {
     public List<GameObject> gameObjects; 
     public int initialPlatformCount = 3; 
-    private int _layer = 0;
+    public int layer = 0;
 
-    private List<GameObject> platforms = new List<GameObject>();
-    private Transform playerTransform;
-    private float scrollSpeed = 5f; 
-    private float lastPlatformRightEdge; 
+    private List<GameObject> _platforms = new List<GameObject>();
+    private Transform _playerTransform;
+    private float _scrollSpeed = 5f; 
+
+    private GameObject _lastPlatform;
+    private GameObject _lastGivenPrefab;
+    private float _lastPlatformWidth;
+    Vector3 _spawnPosition;
+    float _offset = 0;
 
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        for (int i = 0; i < initialPlatformCount; i++)
+        SpawnPlatform(true);
+        for (int i = 0; i < initialPlatformCount-1; i++)
         {
-            Vector3 spawnPosition = (i == 0) ? Vector3.zero : new Vector3(lastPlatformRightEdge, 0, 0);
-            SpawnPlatform(spawnPosition);
+            _spawnPosition = (i == 0) ? Vector3.zero : new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth / 2), 0, 0);
+            SpawnPlatform();
         }
     }
 
@@ -28,48 +34,53 @@ public class PlatformManager : MonoBehaviour
     {
         ScrollPlatforms();
         CheckAndSpawnPlatform();
-
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
-        {
-            _layer++;
-        }
-        else if (Input.GetKeyDown(KeyCode.KeypadMinus))
-        {
-            _layer--;
-        }
     }
 
     void ScrollPlatforms()
     {
-        foreach (GameObject platform in platforms)
+        foreach (GameObject platform in _platforms)
         {
-            platform.transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
+            platform.transform.Translate(Vector3.left * _scrollSpeed * Time.deltaTime);
         }
     }
 
-    void CheckAndSpawnPlatform() // FAIRE LE CALCUL DE LA POS DE SPAWN AU MOMENT OU LE SPAWN EST APPELE 
+    void CheckAndSpawnPlatform() 
     {
-        GameObject firstPlatform = platforms[0];
+        GameObject firstPlatform = _platforms[0];
 
-        if (firstPlatform.transform.position.x + GetPlatformWidth(firstPlatform) / 2 < playerTransform.position.x - GetPlatformWidth(firstPlatform))
+        if (firstPlatform.transform.position.x + GetPlatformWidth(firstPlatform) / 2 < _playerTransform.position.x - GetPlatformWidth(firstPlatform))
         {
             Destroy(firstPlatform);
-            platforms.RemoveAt(0);
+            _platforms.RemoveAt(0);
 
-            Vector3 spawnPosition = new Vector3(lastPlatformRightEdge, 0, 0);
-            SpawnPlatform(spawnPosition);
+            SpawnPlatform();
         }
     }
 
-    void SpawnPlatform(Vector3 spawnPosition)
+    void SpawnPlatform(bool isFirstPlatform = false)
     {
         GameObject platformPrefab = SelectPrefab();
 
-        GameObject platform = Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
-        platforms.Add(platform);
+        if (!isFirstPlatform)
+        {
+            if (_offset != 0)
+            {
+                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth) - _offset, 0, 0);
+                _offset = 0;
+            }
+            else
+                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth), 0, 0);
 
-        float platformWidth = GetPlatformWidth(platform);
-        lastPlatformRightEdge = platform.transform.position.x + (platformWidth / 2);
+        }
+
+
+
+
+        GameObject platform = Instantiate(platformPrefab, _spawnPosition, Quaternion.identity);
+        _platforms.Add(platform);
+
+        _lastPlatform = platform;
+        _lastPlatformWidth = GetPlatformWidth(platform);
     }
 
     float GetPlatformWidth(GameObject platform)
@@ -77,17 +88,24 @@ public class PlatformManager : MonoBehaviour
         SpriteRenderer platformRenderer = platform.GetComponent<SpriteRenderer>();
         if (platformRenderer != null)
         {
-            return platformRenderer.bounds.size.x; // Use the x-axis as it's a 2D game
+            return platformRenderer.bounds.size.x; 
         }
         else
         {
             Debug.LogWarning("Platform prefab does not have a Renderer component!");
-            return 1f; // Return a default width in case something goes wrong
+            return 1f; 
         }
     }
 
     GameObject SelectPrefab()
     {
-        return gameObjects[_layer];
+        GameObject prefabToReturn = gameObjects[layer];
+        if (_lastPlatform != null && prefabToReturn != _lastGivenPrefab)
+        {
+            _offset = (_lastPlatformWidth - prefabToReturn.GetComponent<SpriteRenderer>().bounds.size.x) / 2;
+
+        }
+        _lastGivenPrefab = prefabToReturn;
+        return prefabToReturn;
     }
 }
