@@ -120,7 +120,7 @@ public class SoundtrackerEditor : EditorWindow
             {
                 if (note.Channel == channel)
                 {
-                    var timing = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, tempo);
+                    var timing = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time + 96 + 96/2, tempo);
 
                     if ((float)timing.TotalSeconds - linkedSoundTracker.curves[layer].toleranceTreshold > 0)
                     {
