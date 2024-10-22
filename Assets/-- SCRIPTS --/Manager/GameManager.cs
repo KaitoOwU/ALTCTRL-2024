@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _wallPrefab;
 
     [SerializeField] private TMP_Text _valueOfMusicYippie;
+
+    [SerializeField] private TMP_Text _scoreText;
+    private float _score;
+
     [SerializeField] private Soundtracker _soundtracker;
     [SerializeField] private AudioSource _audioSource;
 
@@ -68,6 +72,14 @@ public class GameManager : MonoBehaviour
                 case EInputPrecision.PERFECT:
                     Debug.Log($"<b><color=#{Color.green.ToHexString()}> {InputPrecision}</color></b>");
                     break;
+            }
+            
+            Debug.Log(debug);
+
+            if (f > 0.8f)
+            {
+                _score += 100;
+                _scoreText.text = "Score : " + _score.ToString();
             }
         }
     }
