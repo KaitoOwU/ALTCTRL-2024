@@ -10,6 +10,9 @@ public class PlatformManager : MonoBehaviour
     public bool jeSuisGD = false;
     public int layer = 1;
 
+    [BoxGroup("pour eliass <3")]
+    public float décalageSpawnPlateforme = 0f;
+
     [HideIf("jeSuisGD")]
     public int initialPlatformCount = 2; 
     [HideIf("jeSuisGD")]
@@ -78,7 +81,7 @@ public class PlatformManager : MonoBehaviour
                 _offset = 0;
             }
             else
-                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth), YOffset, 0);
+                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth) + décalageSpawnPlateforme, YOffset, 0);
 
         }
 
