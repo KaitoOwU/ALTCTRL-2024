@@ -44,7 +44,7 @@ public class NPC : AProps
 
         if (_goDemand.activeInHierarchy == false)
         {
-            Debug.Log(Vector3.Distance(GameManager.Instance.Player.transform.position, this.transform.position));
+            //Debug.Log(Vector3.Distance(GameManager.Instance.Player.transform.position, this.transform.position));
             if (Vector3.Distance(GameManager.Instance.Player.transform.position, this.transform.position) <
                 _rangeOfAppearition)
             {

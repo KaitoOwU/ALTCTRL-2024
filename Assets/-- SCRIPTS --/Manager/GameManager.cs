@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,6 +16,20 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public Transform SpawnPoint { get; private set; } //TEMP
 
     [SerializeField] private GameObject _npcPrefab;
+    [SerializeField] private GameObject _wallPrefab;
+
+    [SerializeField] private TMP_Text _valueOfMusicYippie;
+    [SerializeField] private Soundtracker _soundtracker;
+    [SerializeField] private AudioSource _audioSource;
+    private void Update()
+    {
+        _valueOfMusicYippie.text = _soundtracker.curves[0].curve.Evaluate(_audioSource.time).ToString();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(_valueOfMusicYippie.text);
+        }
+    }
 
     private void Awake()
     {
@@ -23,13 +38,27 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         StartCoroutine(GameLoop());
+        
+        _audioSource.clip = _soundtracker.audioClip;
+        _audioSource.Play();
     }
 
     public IEnumerator GameLoop()
     {
         while (true)
         {
-            GameObject go = Instantiate(_npcPrefab, SpawnPoint.position, Quaternion.identity);
+            bool isNPC = Random.Range(0, 2) == 0;
+            GameObject go;
+
+            if (isNPC)
+            {
+                go = Instantiate(_npcPrefab, SpawnPoint.position, Quaternion.identity);
+            }
+            else
+            {
+                go = Instantiate(_wallPrefab, SpawnPoint.position, Quaternion.identity);
+            }
+            
             yield return new WaitUntil(() => !go);
             yield return new WaitForSeconds(Random.Range(0f, 3f));
         }
