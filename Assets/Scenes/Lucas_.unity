@@ -1144,11 +1144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286f1c3bd3349ea4da8ae71f003e3a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjects:
+  ldPrefabs:
+  - {fileID: 3350220016904240440, guid: 5b9aa526a9507b847b5ec200eed08d8e, type: 3}
   - {fileID: 3350220016904240440, guid: ffb3e9d1677582646bb57fc844c7ff04, type: 3}
   - {fileID: 6430491619311679996, guid: 120b9d4ed4c55d9458c2773c94b43e62, type: 3}
+  jeSuisGD: 1
+  layer: 1
   initialPlatformCount: 5
-  layer: 0
+  YOffset: -4
 --- !u!4 &2006251427
 Transform:
   m_ObjectHideFlags: 0

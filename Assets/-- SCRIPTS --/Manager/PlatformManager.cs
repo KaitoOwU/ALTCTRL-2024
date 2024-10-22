@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class PlatformManager : MonoBehaviour
 {
-    public List<GameObject> gameObjects; 
+    public List<GameObject> ldPrefabs;
+    public bool jeSuisGD = false;
+    public int layer = 1;
+
+    [HideIf("jeSuisGD")]
     public int initialPlatformCount = 3; 
-    public int layer = 0;
+    [HideIf("jeSuisGD")]
+    public int YOffset;
 
     private List<GameObject> _platforms = new List<GameObject>();
     private Transform _playerTransform;
@@ -17,9 +23,11 @@ public class PlatformManager : MonoBehaviour
     private float _lastPlatformWidth;
     Vector3 _spawnPosition;
     float _offset = 0;
+    private bool _layerJustChanged = false;
 
     void Start()
     {
+        _spawnPosition = new Vector3(0, YOffset, 0);
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         SpawnPlatform(true);
@@ -65,11 +73,11 @@ public class PlatformManager : MonoBehaviour
         {
             if (_offset != 0)
             {
-                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth) - _offset, 0, 0);
+                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth) - _offset, YOffset, 0);
                 _offset = 0;
             }
             else
-                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth), 0, 0);
+                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth), YOffset, 0);
 
         }
 
@@ -99,13 +107,40 @@ public class PlatformManager : MonoBehaviour
 
     GameObject SelectPrefab()
     {
-        GameObject prefabToReturn = gameObjects[layer];
+        GameObject prefabToReturn;
+        if (_layerJustChanged)
+        {
+            prefabToReturn = ldPrefabs[0];
+            _layerJustChanged = false;
+        }
+        else
+            prefabToReturn = ldPrefabs[layer];
+
+
         if (_lastPlatform != null && prefabToReturn != _lastGivenPrefab)
         {
             _offset = (_lastPlatformWidth - prefabToReturn.GetComponent<SpriteRenderer>().bounds.size.x) / 2;
-
         }
+
         _lastGivenPrefab = prefabToReturn;
         return prefabToReturn;
     }
+
+
+#region DEBUG FUNCS
+    [Button("LAYER+")]
+    private void AddLayer()
+    {
+        layer++;
+        _layerJustChanged = true;
+    }
+
+
+    [Button("LAYER--")]
+    private void RemoveLayer()
+    {
+        layer--;
+        _layerJustChanged = true;
+    }
+#endregion
 }
