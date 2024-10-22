@@ -3275,6 +3275,7 @@ MonoBehaviour:
   - {fileID: 2522244178152625958, guid: 618eed6f98ec1ec46a05852cff6f9a68, type: 3}
   jeSuisGD: 1
   layer: 1
+  "d\xE9calageSpawnPlateforme": -1
   initialPlatformCount: 3
   YOffset: -4
   _scrollSpeed: 5
