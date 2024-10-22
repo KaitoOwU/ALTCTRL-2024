@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -15,43 +16,71 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public float PosY { get; private set; }
     [field:SerializeField] public float PropsSpeed { get; private set; }
     [field:SerializeField] public Transform SpawnPoint { get; private set; } //TEMP
+    public GameData GameData { get; private set; }
 
+    public Action onBeat;
+
+    public float InputValue
+    {
+        get => _soundtracker.curves[_currentCurve].curve.Evaluate(_audioSource.time);
+    }
+    
+    public EInputPrecision InputPrecision
+    {
+        get
+        {
+            if (InputValue >= GameData.perfectTolerance)
+                return EInputPrecision.PERFECT;
+            if (InputValue >= GameData.niceTolerance)
+                return EInputPrecision.NICE;
+            if (InputValue >= GameData.okTolerance)
+                return EInputPrecision.OK;
+            return EInputPrecision.MISSED;
+        }
+    }
+    
     [SerializeField] private GameObject _npcPrefab;
     [SerializeField] private GameObject _wallPrefab;
 
     [SerializeField] private TMP_Text _valueOfMusicYippie;
+
+    [SerializeField] private TMP_Text _scoreText;
+    private float _score;
+
     [SerializeField] private Soundtracker _soundtracker;
     [SerializeField] private AudioSource _audioSource;
+
+    private int _currentCurve = 0;
     private void Update()
     {
-        float f = _soundtracker.curves[0].curve.Evaluate(_audioSource.time);
-        _valueOfMusicYippie.text = f.ToString();
+        float f = _soundtracker.curves[_currentCurve].curve.Evaluate(_audioSource.time);
+        _valueOfMusicYippie.text = f.ToString(CultureInfo.CurrentCulture);
         
-
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
-            string debug = _valueOfMusicYippie.text;
-            switch (f)
+            switch (InputPrecision)
             {
-                case < 0.25f:
-                    debug += $"<b><color=#{new Color(0.7f, 0.7f, 0.7f).ToHexString()}> MISSED</color></b>";
+                case EInputPrecision.MISSED:
+                    Debug.Log($"<b><color=#{Color.red.ToHexString()}> {InputPrecision}</color></b>");
                     break;
-                case < 0.5f:
-                    debug += $"<b><color=#{new Color(0.7f, 0.2f, 0.2f).ToHexString()}> BAD</color></b>";
+                case EInputPrecision.OK:
+                    Debug.Log($"<b><color=#{Color.yellow.ToHexString()}> {InputPrecision}</color></b>");
                     break;
-                case < 0.75f:
-                    debug += $"<b><color=#{Color.blue.ToHexString()}> OK</color></b>";
+                case EInputPrecision.NICE:
+                    Debug.Log($"<b><color=#{Color.cyan.ToHexString()}> {InputPrecision}</color></b>");
                     break;
-                case < 0.9f:
-                    debug += $"<b><color=#{Color.yellow.ToHexString()}> NICE</color></b>";
-                    break;
-                case >= 0.9f:
-                    debug += $"<b><color=#{Color.green.ToHexString()}> PERFECT</color></b>";
+                case EInputPrecision.PERFECT:
+                    Debug.Log($"<b><color=#{Color.green.ToHexString()}> {InputPrecision}</color></b>");
                     break;
             }
             
             Debug.Log(debug);
+
+            if (f > 0.8f)
+            {
+                _score += 100;
+                _scoreText.text = "Score : " + _score.ToString();
+            }
         }
     }
 
@@ -59,15 +88,18 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null)
             Destroy(this.gameObject);
+        GameData = Resources.Load<GameData>("GameData");
 
         Instance = this;
-        StartCoroutine(GameLoop());
+        //StartCoroutine(GameLoop());
+        StartCoroutine(BeatChecker());
         
         _audioSource.clip = _soundtracker.audioClip;
         _audioSource.Play();
+        
     }
 
-    public IEnumerator GameLoop()
+    private IEnumerator GameLoop()
     {
         while (true)
         {
@@ -88,6 +120,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private IEnumerator BeatChecker()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => InputValue > GameData.perfectTolerance);
+            onBeat?.Invoke();
+            yield return new WaitUntil(() => InputValue < GameData.okTolerance);
+        }
+    }
+
     private void OnValidate()
     {
         foreach (var fixedPose in Editor.FindObjectsByType<GameObject>(FindObjectsSortMode.InstanceID)) if(fixedPose.GetComponent<IFixedPos>() != null)
@@ -98,3 +140,11 @@ public class GameManager : MonoBehaviour
 }
 
 public interface IFixedPos{}
+
+public enum EInputPrecision
+{
+    MISSED,
+    OK,
+    NICE,
+    PERFECT
+}

@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b88c5e58-6aa1-40bd-a451-8507875c6758" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/SoundtrackerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/SoundtrackerEditor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,13 +21,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/023f41f0c8dc478396d35d141ca9c70117a000/b0/83469a2e/IMGUIContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5e53ad466ce74a6082606d7fa046fc9b95c800/8b/0386409a/HostView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6ff3bcb667574bf9a8630184172fcfbf176600/24/065f80a3/Keyframe.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6ff3bcb667574bf9a8630184172fcfbf176600/ca/bb1f0856/AnimationCurve.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NPC.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/Soundtracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.11/Editor/Data/Util/PooledList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Core/Reflection/ConversionUtility.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -40,12 +47,12 @@
   "keyToString": {
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "kevin-temp",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.idesettings.quicklists",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -76,10 +83,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5004">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="5004" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -105,13 +112,15 @@
       <workItem from="1729235810752" duration="11227000" />
       <workItem from="1729251371650" duration="4891000" />
       <workItem from="1729258085910" duration="3291000" />
-      <workItem from="1729500652574" duration="2899000" />
+      <workItem from="1729500652574" duration="3515000" />
+      <workItem from="1729581448028" duration="5720000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
