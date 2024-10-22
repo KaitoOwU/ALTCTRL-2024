@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -17,16 +18,22 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public Transform SpawnPoint { get; private set; } //TEMP
     public GameData GameData { get; private set; }
 
+    public Action onBeat;
+
+    public float InputValue
+    {
+        get => _soundtracker.curves[_currentCurve].curve.Evaluate(_audioSource.time);
+    }
+    
     public EInputPrecision InputPrecision
     {
         get
         {
-            float f = _soundtracker.curves[_currentCurve].curve.Evaluate(_audioSource.time);
-            if (f >= GameData.perfectTolerance)
+            if (InputValue >= GameData.perfectTolerance)
                 return EInputPrecision.PERFECT;
-            if (f >= GameData.niceTolerance)
+            if (InputValue >= GameData.niceTolerance)
                 return EInputPrecision.NICE;
-            if (f >= GameData.okTolerance)
+            if (InputValue >= GameData.okTolerance)
                 return EInputPrecision.OK;
             return EInputPrecision.MISSED;
         }
@@ -43,10 +50,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         float f = _soundtracker.curves[_currentCurve].curve.Evaluate(_audioSource.time);
-        _valueOfMusicYippie.text = f.ToString();
+        _valueOfMusicYippie.text = f.ToString(CultureInfo.CurrentCulture);
 
         
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
             switch (InputPrecision)
             {

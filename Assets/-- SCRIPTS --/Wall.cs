@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Wall : AProps
 {
-    [SerializeField] private GameObject _goDemand;
+    /*[SerializeField] private GameObject _goDemand;
     [SerializeField] private TMP_Text _tDemand;
     [SerializeField] private float _rangeOfAppearition;
 
@@ -47,5 +47,5 @@ public class Wall : AProps
                 _goDemand.SetActive(true);
             }
         }
-    }
+    }*/
 }
