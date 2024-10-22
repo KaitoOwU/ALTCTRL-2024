@@ -120,13 +120,14 @@ public class SoundtrackerEditor : EditorWindow
             {
                 if (note.Channel == channel)
                 {
-                    var timing = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time + 311/2, tempo);
+                    int i = int.Parse(linkedSoundTracker.midiFile.TimeDivision.ToString().Replace(" ticks/qnote", ""));
+                    var timing = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time + i/3, tempo);
 
                     if ((float)timing.TotalSeconds - linkedSoundTracker.curves[layer].toleranceTreshold > 0)
                     {
                         curve.AddKey(new Keyframe((float)timing.TotalSeconds - linkedSoundTracker.curves[layer].toleranceTreshold, 0));
                     }
-                    curve.AddKey(new Keyframe((float)timing.TotalSeconds, 1));
+                    curve.AddKey(new Keyframe((float)timing.TotalSeconds, 1f));
                     if ((float)timing.TotalSeconds - linkedSoundTracker.curves[layer].toleranceTreshold < linkedSoundTracker.midiFile.GetDuration<MetricTimeSpan>().TotalSeconds)
                     {
                         curve.AddKey(new Keyframe((float)timing.TotalSeconds + linkedSoundTracker.curves[layer].toleranceTreshold, 0));   
