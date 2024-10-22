@@ -31,11 +31,11 @@ public class PlatformManager : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         SpawnPlatform(true);
-        for (int i = 0; i < initialPlatformCount-1; i++)
-        {
-            _spawnPosition = (i == 0) ? Vector3.zero : new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth / 2), 0, 0);
-            SpawnPlatform();
-        }
+        //for (int i = 0; i < initialPlatformCount-1; i++)
+        //{
+        //    _spawnPosition = (i == 0) ? Vector3.zero : new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth / 2), 0, 0);
+        //    SpawnPlatform();
+        //}
     }
 
     void Update()
@@ -94,6 +94,7 @@ public class PlatformManager : MonoBehaviour
     float GetPlatformWidth(GameObject platform)
     {
         SpriteRenderer platformRenderer = platform.GetComponent<SpriteRenderer>();
+        
         if (platformRenderer != null)
         {
             return platformRenderer.bounds.size.x; 
