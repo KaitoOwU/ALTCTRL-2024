@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
     {
         float f = _soundtracker.curves[_currentCurve].curve.Evaluate(_audioSource.time);
         _valueOfMusicYippie.text = f.ToString(CultureInfo.CurrentCulture);
-
         
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -77,17 +76,18 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null)
             Destroy(this.gameObject);
+        GameData = Resources.Load<GameData>("GameData");
 
         Instance = this;
-        StartCoroutine(GameLoop());
+        //StartCoroutine(GameLoop());
+        StartCoroutine(BeatChecker());
         
         _audioSource.clip = _soundtracker.audioClip;
         _audioSource.Play();
         
-        GameData = Resources.Load<GameData>("GameData");
     }
 
-    public IEnumerator GameLoop()
+    private IEnumerator GameLoop()
     {
         while (true)
         {
@@ -105,6 +105,16 @@ public class GameManager : MonoBehaviour
             
             yield return new WaitUntil(() => !go);
             yield return new WaitForSeconds(Random.Range(0f, 3f));
+        }
+    }
+
+    private IEnumerator BeatChecker()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => InputValue > GameData.perfectTolerance);
+            onBeat?.Invoke();
+            yield return new WaitUntil(() => InputValue < GameData.okTolerance);
         }
     }
 

@@ -6,21 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b88c5e58-6aa1-40bd-a451-8507875c6758" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAura.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAura.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAuraMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAuraMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NoteManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NoteManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/GameData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/GameData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/GameData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/SoundtrackerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/SoundtrackerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Wall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/GameData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/GameData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/GameData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/GameData.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Kevin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Kevin.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +113,7 @@
       <workItem from="1729251371650" duration="4891000" />
       <workItem from="1729258085910" duration="3291000" />
       <workItem from="1729500652574" duration="3515000" />
-      <workItem from="1729581448028" duration="3280000" />
+      <workItem from="1729581448028" duration="5720000" />
     </task>
     <servers />
   </component>
