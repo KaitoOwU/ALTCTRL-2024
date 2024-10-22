@@ -16,7 +16,7 @@ public class PlatformManager : MonoBehaviour
 
     private List<GameObject> _platforms = new List<GameObject>();
     private Transform _playerTransform;
-    private float _scrollSpeed = 5f; 
+    public float _scrollSpeed = 5f; 
 
     private GameObject _lastPlatform;
     private GameObject _lastGivenPrefab;
