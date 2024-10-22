@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.U2D;
 
 public class PlatformManager : MonoBehaviour
 {
@@ -93,11 +94,10 @@ public class PlatformManager : MonoBehaviour
 
     float GetPlatformWidth(GameObject platform)
     {
-        SpriteRenderer platformRenderer = platform.GetComponent<SpriteRenderer>();
-        
-        if (platformRenderer != null)
+        SpriteShapeRenderer rend = platform.GetComponent<SpriteShapeRenderer>();
+        if (rend != null)
         {
-            return platformRenderer.bounds.size.x; 
+            return rend.bounds.size.x;
         }
         else
         {
