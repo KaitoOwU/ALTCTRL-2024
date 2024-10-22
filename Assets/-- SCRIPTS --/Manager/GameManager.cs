@@ -56,12 +56,6 @@ public class GameManager : MonoBehaviour
             }
             
             Debug.Log(debug);
-
-            if (f > 0.8f)
-            {
-                _score += 100;
-                _scoreText.text = "Score : " + _score.ToString();
-            }
         }
     }
 
