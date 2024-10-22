@@ -73,8 +73,6 @@ public class GameManager : MonoBehaviour
                     Debug.Log($"<b><color=#{Color.green.ToHexString()}> {InputPrecision}</color></b>");
                     break;
             }
-            
-            Debug.Log(debug);
 
             if (f > 0.8f)
             {
