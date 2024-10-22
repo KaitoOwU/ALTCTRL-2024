@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b88c5e58-6aa1-40bd-a451-8507875c6758" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAuraMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAuraMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Editor/KSI - Thick Of It (feat. Trippie Redd) [Official Music Video].mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Editor/KSI - Thick Of It (feat. Trippie Redd) [Official Music Video].mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Editor/LevelEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Editor/LevelEditorWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test/Can't Stop - Red Hot Chili Peppers.mid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test/Can't Stop - Red Hot Chili Peppers.mid.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test/test.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/test/test.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Kevin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Kevin.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/SoundtrackerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/SoundtrackerEditor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +28,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/NPC.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/-- SCRIPTS --/ScriptableObjects/Soundtracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.11/Editor/Data/Util/PooledList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Core/Reflection/ConversionUtility.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -48,22 +43,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;kevin-temp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "kevin-temp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.idesettings.quicklists",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Users\adves\Documents\Unity\Unity Versions\2022.3.50f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\adves\Documents\Unity\Unity Projects\ALTCTRL-2024&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\adves\Documents\Unity\Unity Projects\ALTCTRL-2024" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -71,7 +66,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Users\adves\Documents\Unity\Unity Versions\2022.3.50f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\adves\Documents\Unity\Unity Projects\ALTCTRL-2024&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\adves\Documents\Unity\Unity Projects\ALTCTRL-2024" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -88,10 +83,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5004">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="5004" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -116,12 +111,16 @@
       <workItem from="1729155105319" duration="13480000" />
       <workItem from="1729235810752" duration="11227000" />
       <workItem from="1729251371650" duration="4891000" />
+      <workItem from="1729258085910" duration="3291000" />
+      <workItem from="1729500652574" duration="3515000" />
+      <workItem from="1729581448028" duration="5720000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
