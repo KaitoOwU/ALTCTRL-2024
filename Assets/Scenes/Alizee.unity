@@ -4025,6 +4025,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star V2
       objectReference: {fileID: 0}
+    - target: {fileID: 2265631790042775802, guid: da500525c05ef08419714ea8551f46b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8645508248295731098, guid: da500525c05ef08419714ea8551f46b2,
         type: 3}
       propertyPath: m_LocalPosition.x
