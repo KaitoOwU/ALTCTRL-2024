@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bd573d0b41cfb4591936962dcbe3f2, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  perfectTolerance: 0.9
-  niceTolerance: 0.7
-  okTolerance: 0.5
+  perfectTolerance: 0.8
+  niceTolerance: 0.6
+  okTolerance: 0.4
