@@ -6,6 +6,8 @@ using System;
 
 public class CameraPositionChanger : MonoBehaviour
 {
+    public static CameraPositionChanger instance;
+
     Camera _cam ;
     Dictionary<CameraPosition, Vector3> _posDict;
     Dictionary<CameraPosition, float> _zoomDict;
@@ -16,6 +18,7 @@ public class CameraPositionChanger : MonoBehaviour
     [SerializeField] private Vector3 _posThree;
     [SerializeField] private Vector3 _posFour;
     [SerializeField] private Vector3 _posFive;
+    [SerializeField] private Vector3 _posWin;
 
     [Header("Camera Zooms")]
     [SerializeField] private float _zoomOne;
@@ -23,6 +26,12 @@ public class CameraPositionChanger : MonoBehaviour
     [SerializeField] private float _zoomThree;
     [SerializeField] private float _zoomFour;
     [SerializeField] private float _zoomFive;
+    [SerializeField] private float _zoomWin;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -34,7 +43,8 @@ public class CameraPositionChanger : MonoBehaviour
             { CameraPosition.SECOND, _posTwo },
             { CameraPosition.THIRD, _posThree },
             { CameraPosition.FOURTH, _posFour },
-            { CameraPosition.FIFTH, _posFive }
+            { CameraPosition.FIFTH, _posFive },
+            { CameraPosition.WIN, _posWin },
         };
 
         _zoomDict = new()
@@ -43,7 +53,8 @@ public class CameraPositionChanger : MonoBehaviour
             { CameraPosition.SECOND, _zoomTwo },
             { CameraPosition.THIRD, _zoomThree },
             { CameraPosition.FOURTH, _zoomFour },
-            { CameraPosition.FIFTH, _zoomFive }
+            { CameraPosition.FIFTH, _zoomFive },
+            { CameraPosition.WIN, _zoomWin }
         };
     }
 
@@ -54,7 +65,8 @@ public class CameraPositionChanger : MonoBehaviour
         SECOND,
         THIRD,
         FOURTH,
-        FIFTH
+        FIFTH,
+        WIN
     }
 
     public void ChangeCameraPosition(CameraPosition position)
