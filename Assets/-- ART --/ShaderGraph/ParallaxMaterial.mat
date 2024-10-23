@@ -121,7 +121,7 @@ Material:
     - _NoisePower: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _ParallaxSpeed: 0.5
+    - _ParallaxSpeed: 0.24
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Radius: 0.2
