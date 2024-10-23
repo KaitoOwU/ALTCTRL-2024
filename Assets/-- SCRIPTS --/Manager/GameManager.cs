@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -19,43 +20,27 @@ public class GameManager : MonoBehaviour
     public GameData GameData { get; private set; }
 
     public Action onBeat;
-
-    public float InputValue
-    {
-        get => _soundtracker.curves[_currentCurve].curve.Evaluate(_audioSource.time);
-    }
+    [SerializeField] private SignalReceiver _signals; 
     
     public EInputPrecision InputPrecision
     {
         get
         {
-            if (InputValue >= GameData.perfectTolerance)
+            /*if (InputValue >= GameData.perfectTolerance)
                 return EInputPrecision.PERFECT;
             if (InputValue >= GameData.niceTolerance)
                 return EInputPrecision.NICE;
             if (InputValue >= GameData.okTolerance)
-                return EInputPrecision.OK;
+                return EInputPrecision.OK;*/
             return EInputPrecision.MISSED;
         }
     }
     
-    [SerializeField] private GameObject _npcPrefab;
-    [SerializeField] private GameObject _wallPrefab;
-
-    [SerializeField] private TMP_Text _valueOfMusicYippie;
-
-    [SerializeField] private TMP_Text _scoreText;
     private float _score;
-
-    [SerializeField] private Soundtracker _soundtracker;
-    [SerializeField] private AudioSource _audioSource;
 
     private int _currentCurve = 0;
     private void Update()
     {
-        float f = _soundtracker.curves[_currentCurve].curve.Evaluate(_audioSource.time);
-        _valueOfMusicYippie.text = f.ToString(CultureInfo.CurrentCulture);
-        
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
             switch (InputPrecision)
@@ -65,19 +50,16 @@ public class GameManager : MonoBehaviour
                     break;
                 case EInputPrecision.OK:
                     Debug.Log($"<b><color=#{Color.yellow.ToHexString()}> {InputPrecision}</color></b>");
+                    _score += 50;
                     break;
                 case EInputPrecision.NICE:
                     Debug.Log($"<b><color=#{Color.cyan.ToHexString()}> {InputPrecision}</color></b>");
+                    _score += 70;
                     break;
                 case EInputPrecision.PERFECT:
                     Debug.Log($"<b><color=#{Color.green.ToHexString()}> {InputPrecision}</color></b>");
+                    _score += 100;
                     break;
-            }
-
-            if (f > 0.8f)
-            {
-                _score += 100;
-                _scoreText.text = "Score : " + _score.ToString();
             }
         }
     }
@@ -91,40 +73,13 @@ public class GameManager : MonoBehaviour
         Instance = this;
         //StartCoroutine(GameLoop());
         StartCoroutine(BeatChecker());
-        
-        _audioSource.clip = _soundtracker.audioClip;
-        _audioSource.Play();
-        
-    }
-
-    private IEnumerator GameLoop()
-    {
-        while (true)
-        {
-            bool isNPC = Random.Range(0, 2) == 0;
-            GameObject go;
-
-            if (isNPC)
-            {
-                go = Instantiate(_npcPrefab, SpawnPoint.position, Quaternion.identity);
-            }
-            else
-            {
-                go = Instantiate(_wallPrefab, SpawnPoint.position, Quaternion.identity);
-            }
-            
-            yield return new WaitUntil(() => !go);
-            yield return new WaitForSeconds(Random.Range(0f, 3f));
-        }
     }
 
     private IEnumerator BeatChecker()
     {
         while (true)
         {
-            yield return new WaitUntil(() => InputValue > GameData.perfectTolerance);
-            onBeat?.Invoke();
-            yield return new WaitUntil(() => InputValue < GameData.okTolerance);
+            
         }
     }
 

@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b88c5e58-6aa1-40bd-a451-8507875c6758" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Drums.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Drums.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +114,7 @@
       <workItem from="1729500652574" duration="3515000" />
       <workItem from="1729581448028" duration="5720000" />
       <workItem from="1729603270272" duration="1786000" />
+      <workItem from="1729667542465" duration="265000" />
     </task>
     <servers />
   </component>
