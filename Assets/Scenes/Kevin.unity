@@ -182,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &452679158
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -199,8 +199,6 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 2193000330548400004, guid: 797634800a477c146a01d1a7a1d1f8bf, type: 2}
-    value: {fileID: 1495563873}
-  - key: {fileID: 4217876654747709608, guid: 797634800a477c146a01d1a7a1d1f8bf, type: 2}
     value: {fileID: 1495563873}
   m_ExposedReferences:
     m_References: []
@@ -745,10 +743,12 @@ MonoBehaviour:
   <SpawnPoint>k__BackingField: {fileID: 0}
   _tmp: {fileID: 1896729832}
   _scoring: {fileID: 830499890}
-  _director: {fileID: 452679158}
+  _directorMelody: {fileID: 452679158}
+  _directorDrums: {fileID: 533122362651417449}
   _audioSource: {fileID: 1495563873}
+  _gameData: {fileID: 11400000, guid: 0498a5c814706664e8ea3133e3a1ea38, type: 2}
   _signals: {fileID: 1495563872}
-  _timeAfterBeatValid: 0.3
+  _timeAfterBeatValid: 0.5
 --- !u!114 &1495563870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,6 +1189,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896729830}
   m_CullTransparentMesh: 1
+--- !u!320 &533122362651417449
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427825772628745791}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 1af150739190795428adfd414aa13f52, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 5254529994562907337, guid: 1af150739190795428adfd414aa13f52, type: 2}
+    value: {fileID: 1495563873}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1675596949689610881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427825772628745791}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2427825772628745791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675596949689610881}
+  - component: {fileID: 533122362651417449}
+  m_Layer: 0
+  m_Name: TL_Drums
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1200,3 +1251,4 @@ SceneRoots:
   - {fileID: 640477363}
   - {fileID: 1280751479}
   - {fileID: 452679159}
+  - {fileID: 1675596949689610881}

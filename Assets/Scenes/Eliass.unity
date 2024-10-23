@@ -1485,57 +1485,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1332304433
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1332304435}
-  - component: {fileID: 1332304434}
-  m_Layer: 0
-  m_Name: TL_Drums
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!320 &1332304434
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332304433}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 1af150739190795428adfd414aa13f52, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 5254529994562907337, guid: 1af150739190795428adfd414aa13f52, type: 2}
-    value: {fileID: 1602987915}
-  m_ExposedReferences:
-    m_References: []
---- !u!4 &1332304435
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332304433}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403668280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,14 +1814,12 @@ MonoBehaviour:
   <PosY>k__BackingField: -1
   <PropsSpeed>k__BackingField: 2
   <SpawnPoint>k__BackingField: {fileID: 136447092}
-  _npcPrefab: {fileID: 7591107168775624328, guid: 2049dcc66a4b77b4ca541220f17beea0,
-    type: 3}
-  _wallPrefab: {fileID: 7591107168775624328, guid: 7a2666f2a7db2e643a802f55968b41db,
-    type: 3}
-  _valueOfMusicYippie: {fileID: 1896729832}
-  _scoreText: {fileID: 0}
-  _soundtracker: {fileID: 11400000, guid: 41330eea9643106439b203ddf5a40f72, type: 2}
+  _tmp: {fileID: 0}
+  _scoring: {fileID: 0}
+  _director: {fileID: 0}
   _audioSource: {fileID: 1602987915}
+  _signals: {fileID: 0}
+  _timeAfterBeatValid: 0
 --- !u!114 &1495563870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3326,7 +3273,7 @@ MonoBehaviour:
   - {fileID: 2522244178152625958, guid: 618eed6f98ec1ec46a05852cff6f9a68, type: 3}
   jeSuisGD: 1
   layer: 1
-  "d\xE9calageSpawnPlateforme": -1
+  "d\xE9calageSpawnPlateforme": 0
   initialPlatformCount: 3
   YOffset: -4
   _scrollSpeed: 5
@@ -3403,6 +3350,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 618eed6f98ec1ec46a05852cff6f9a68, type: 3}
+--- !u!1001 &7055044636416535138
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 533122362117511444, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 1602987915}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675596949145350396, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427825772096937026, guid: 1d83d5fd24135c14b84bf453e528426e,
+        type: 3}
+      propertyPath: m_Name
+      value: TL_Drums
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d83d5fd24135c14b84bf453e528426e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3416,4 +3436,4 @@ SceneRoots:
   - {fileID: 573698828}
   - {fileID: 1996111154}
   - {fileID: 3864939690127443224}
-  - {fileID: 1332304435}
+  - {fileID: 7055044636416535138}

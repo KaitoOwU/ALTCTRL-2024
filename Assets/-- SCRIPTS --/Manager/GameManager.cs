@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -17,25 +18,25 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public float PosY { get; private set; }
     [field:SerializeField] public float PropsSpeed { get; private set; }
     [field:SerializeField] public Transform SpawnPoint { get; private set; }
-    public GameData GameData { get; private set; }
 
     [SerializeField] private TMP_Text _tmp, _scoring;
-    [SerializeField] private PlayableDirector _director;
+    [SerializeField] private PlayableDirector _directorMelody, _directorDrums;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private GameData _gameData;
 
     public Action onBeat;
     [SerializeField] private SignalReceiver _signals;
-    private float _beatStatus;
+    private float _beatStatus = 0f;
     
     public EInputPrecision InputPrecision
     {
         get
         {
-            if (_beatStatus >= GameData.perfectTolerance)
+            if (_beatStatus >= _gameData.perfectTolerance)
                 return EInputPrecision.PERFECT;
-            if (_beatStatus >= GameData.niceTolerance)
+            if (_beatStatus >= _gameData.niceTolerance)
                 return EInputPrecision.NICE;
-            return _beatStatus >= GameData.okTolerance ? EInputPrecision.OK : EInputPrecision.MISSED;
+            return _beatStatus >= _gameData.okTolerance ? EInputPrecision.OK : EInputPrecision.MISSED;
         }
     }
     
@@ -49,20 +50,19 @@ public class GameManager : MonoBehaviour
         _tmp.text = Math.Round(_beatStatus).ToString(CultureInfo.CurrentCulture);
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
-            string debug = _valueOfMusicYippie.text;
-            switch (f)
+            switch (InputPrecision)
             {
-                case EInputPrecision.MISSED:
-                    _scoring.text = $"<color=#{Color.red.ToHexString()}><b>MISSED</b></color><br>" + _scoring.text;
-                    break;
-                case EInputPrecision.OK:
-                    _scoring.text = $"<color=#{Color.yellow.ToHexString()}><b>OK</b></color><br>" + _scoring.text;
+                case EInputPrecision.PERFECT:
+                    _scoring.text = $"<color=#{Color.green.ToHexString()}>PERFECT</color><br>" + _scoring.text;
                     break;
                 case EInputPrecision.NICE:
-                    _scoring.text = $"<color=#{Color.cyan.ToHexString()}><b>NICE</b></color><br>" + _scoring.text;
+                    _scoring.text = $"<color=#{Color.cyan.ToHexString()}>NICE</color><br>" + _scoring.text;
                     break;
-                case EInputPrecision.PERFECT:
-                    _scoring.text = $"<color=#{Color.green.ToHexString()}><b>GREEN</b></color><br>" + _scoring.text;
+                case EInputPrecision.OK:
+                    _scoring.text = $"<color=#{Color.yellow.ToHexString()}>OK</color><br>" + _scoring.text;
+                    break;
+                case EInputPrecision.MISSED:
+                    _scoring.text = $"<color=#{Color.red.ToHexString()}>MISSED</color><br>" + _scoring.text;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -82,12 +82,16 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartBeat()
     {
-        _director.Play();
+        _directorMelody.Play();
+        _directorDrums.Play();
         yield return new WaitForSecondsRealtime(1f);
-        _director.Pause();
-        _director.time = 0;
+        _directorMelody.Pause();
+        _directorDrums.Pause();
+        _directorMelody.time = 0;
+        _directorDrums.time = 0;
         yield return new WaitForSecondsRealtime(1f);
-        _director.Play();
+        _directorMelody.Play();
+        _directorDrums.Play();
     }
 
     public void OnBeat()
@@ -109,3 +113,11 @@ public class GameManager : MonoBehaviour
 }
 
 public interface IFixedPos{}
+
+public enum EInputPrecision
+{
+    PERFECT,
+    NICE,
+    OK,
+    MISSED
+}
