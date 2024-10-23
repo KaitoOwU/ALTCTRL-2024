@@ -318,6 +318,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1225589677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225589679}
+  - component: {fileID: 1225589678}
+  m_Layer: 0
+  m_Name: TL_Drums
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1225589678
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225589677}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 1af150739190795428adfd414aa13f52, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 5254529994562907337, guid: 1af150739190795428adfd414aa13f52, type: 2}
+    value: {fileID: 1602987915}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1225589679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225589677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280751475
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,13 +603,12 @@ MonoBehaviour:
   <Player>k__BackingField: {fileID: 1477581436}
   <PosY>k__BackingField: -1
   <PropsSpeed>k__BackingField: 2
-  <SpawnPoint>k__BackingField: {fileID: 136447092}
-  _npcPrefab: {fileID: 7591107168775624328, guid: 2049dcc66a4b77b4ca541220f17beea0,
-    type: 3}
-  _wallPrefab: {fileID: 7591107168775624328, guid: 7a2666f2a7db2e643a802f55968b41db,
-    type: 3}
-  _valueOfMusicYippie: {fileID: 1896729832}
-  _soundtracker: {fileID: 11400000, guid: 41330eea9643106439b203ddf5a40f72, type: 2}
+  <SpawnPoint>k__BackingField: {fileID: 0}
+  _npcPrefab: {fileID: 0}
+  _wallPrefab: {fileID: 0}
+  _valueOfMusicYippie: {fileID: 0}
+  _scoreText: {fileID: 0}
+  _soundtracker: {fileID: 0}
   _audioSource: {fileID: 1602987915}
 --- !u!114 &1495563870
 MonoBehaviour:
@@ -822,6 +872,57 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1625854913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1625854915}
+  - component: {fileID: 1625854914}
+  m_Layer: 0
+  m_Name: TL_Melody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1625854914
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625854913}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 797634800a477c146a01d1a7a1d1f8bf, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2193000330548400004, guid: 797634800a477c146a01d1a7a1d1f8bf, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1625854915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625854913}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896729830
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,3 +1067,5 @@ SceneRoots:
   - {fileID: 929605491}
   - {fileID: 640477363}
   - {fileID: 1280751479}
+  - {fileID: 1225589679}
+  - {fileID: 1625854915}

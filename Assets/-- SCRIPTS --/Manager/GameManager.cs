@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -16,24 +17,29 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public float PropsSpeed { get; private set; }
     [field:SerializeField] public Transform SpawnPoint { get; private set; } //TEMP
 
-    [SerializeField] private GameObject _npcPrefab;
-    [SerializeField] private GameObject _wallPrefab;
-
-    [SerializeField] private TMP_Text _valueOfMusicYippie;
-
-    [SerializeField] private TMP_Text _scoreText;
+    public Action onBeat;
+    [SerializeField] private SignalReceiver _signals; 
+    
+    public EInputPrecision InputPrecision
+    {
+        get
+        {
+            /*if (InputValue >= GameData.perfectTolerance)
+                return EInputPrecision.PERFECT;
+            if (InputValue >= GameData.niceTolerance)
+                return EInputPrecision.NICE;
+            if (InputValue >= GameData.okTolerance)
+                return EInputPrecision.OK;*/
+            return EInputPrecision.MISSED;
+        }
+    }
+    
     private float _score;
 
-    [SerializeField] private Soundtracker _soundtracker;
-    [SerializeField] private AudioSource _audioSource;
+    private int _currentCurve = 0;
     private void Update()
     {
-        float f = _soundtracker.curves[0].curve.Evaluate(_audioSource.time);
-        _valueOfMusicYippie.text = f.ToString();
-        
-
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
             string debug = _valueOfMusicYippie.text;
             switch (f)
@@ -41,26 +47,21 @@ public class GameManager : MonoBehaviour
                 case < 0.25f:
                     debug += $"<b><color=#{new Color(0.7f, 0.7f, 0.7f).ToHexString()}> MISSED</color></b>";
                     break;
-                case < 0.5f:
-                    debug += $"<b><color=#{new Color(0.7f, 0.2f, 0.2f).ToHexString()}> BAD</color></b>";
+                case EInputPrecision.OK:
+                    Debug.Log($"<b><color=#{Color.yellow.ToHexString()}> {InputPrecision}</color></b>");
+                    _score += 50;
                     break;
-                case < 0.75f:
-                    debug += $"<b><color=#{Color.blue.ToHexString()}> OK</color></b>";
+                case EInputPrecision.NICE:
+                    Debug.Log($"<b><color=#{Color.cyan.ToHexString()}> {InputPrecision}</color></b>");
+                    _score += 70;
                     break;
-                case < 0.9f:
-                    debug += $"<b><color=#{Color.yellow.ToHexString()}> NICE</color></b>";
+                case EInputPrecision.PERFECT:
+                    Debug.Log($"<b><color=#{Color.green.ToHexString()}> {InputPrecision}</color></b>");
+                    _score += 100;
                     break;
                 case >= 0.9f:
                     debug += $"<b><color=#{Color.green.ToHexString()}> PERFECT</color></b>";
                     break;
-            }
-            
-            Debug.Log(debug);
-
-            if (f > 0.8f)
-            {
-                _score += 100;
-                _scoreText.text = "Score : " + _score.ToString();
             }
         }
     }
@@ -71,30 +72,15 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
 
         Instance = this;
-        StartCoroutine(GameLoop());
-        
-        _audioSource.clip = _soundtracker.audioClip;
-        _audioSource.Play();
+        //StartCoroutine(GameLoop());
+        StartCoroutine(BeatChecker());
     }
 
-    public IEnumerator GameLoop()
+    private IEnumerator BeatChecker()
     {
         while (true)
         {
-            bool isNPC = Random.Range(0, 2) == 0;
-            GameObject go;
-
-            if (isNPC)
-            {
-                go = Instantiate(_npcPrefab, SpawnPoint.position, Quaternion.identity);
-            }
-            else
-            {
-                go = Instantiate(_wallPrefab, SpawnPoint.position, Quaternion.identity);
-            }
             
-            yield return new WaitUntil(() => !go);
-            yield return new WaitForSeconds(Random.Range(0f, 3f));
         }
     }
 
