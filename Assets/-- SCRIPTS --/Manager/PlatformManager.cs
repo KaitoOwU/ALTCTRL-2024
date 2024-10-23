@@ -14,7 +14,7 @@ public class PlatformManager : MonoBehaviour
     public float décalageSpawnPlateforme = 0f;
 
     [HideIf("jeSuisGD")]
-    public int initialPlatformCount = 3; 
+    public int initialPlatformCount = 2; 
     [HideIf("jeSuisGD")]
     public int YOffset;
 
@@ -35,11 +35,11 @@ public class PlatformManager : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         SpawnPlatform(true);
-        //for (int i = 0; i < initialPlatformCount-1; i++)
-        //{
-        //    _spawnPosition = (i == 0) ? Vector3.zero : new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth / 2), 0, 0);
-        //    SpawnPlatform();
-        //}
+        for (int i = 0; i < initialPlatformCount - 1; i++)
+        {
+            _spawnPosition = (i == 0) ? Vector3.zero : new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth / 2), 0, 0);
+            SpawnPlatform();
+        }
     }
 
     void Update()
