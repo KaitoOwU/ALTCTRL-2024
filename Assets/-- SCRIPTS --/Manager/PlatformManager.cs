@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.U2D;
 
 public class PlatformManager : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class PlatformManager : MonoBehaviour
     public bool jeSuisGD = false;
     public int layer = 1;
 
+    [BoxGroup("pour eliass <3")]
+    public float décalageSpawnPlateforme = 0f;
+
     [HideIf("jeSuisGD")]
-    public int initialPlatformCount = 3; 
+    public int initialPlatformCount = 2; 
     [HideIf("jeSuisGD")]
     public int YOffset;
 
@@ -31,7 +35,7 @@ public class PlatformManager : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         SpawnPlatform(true);
-        for (int i = 0; i < initialPlatformCount-1; i++)
+        for (int i = 0; i < initialPlatformCount - 1; i++)
         {
             _spawnPosition = (i == 0) ? Vector3.zero : new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth / 2), 0, 0);
             SpawnPlatform();
@@ -77,7 +81,7 @@ public class PlatformManager : MonoBehaviour
                 _offset = 0;
             }
             else
-                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth), YOffset, 0);
+                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth) + décalageSpawnPlateforme, YOffset, 0);
 
         }
 
@@ -93,10 +97,10 @@ public class PlatformManager : MonoBehaviour
 
     float GetPlatformWidth(GameObject platform)
     {
-        SpriteRenderer platformRenderer = platform.GetComponent<SpriteRenderer>();
-        if (platformRenderer != null)
+        SpriteShapeRenderer rend = platform.GetComponent<SpriteShapeRenderer>();
+        if (rend != null)
         {
-            return platformRenderer.bounds.size.x; 
+            return rend.bounds.size.x;
         }
         else
         {

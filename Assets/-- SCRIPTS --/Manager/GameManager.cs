@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -50,7 +49,8 @@ public class GameManager : MonoBehaviour
         _tmp.text = Math.Round(_beatStatus).ToString(CultureInfo.CurrentCulture);
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
-            switch (InputPrecision)
+            string debug = _valueOfMusicYippie.text;
+            switch (f)
             {
                 case EInputPrecision.MISSED:
                     _scoring.text = $"<color=#{Color.red.ToHexString()}><b>MISSED</b></color><br>" + _scoring.text;
@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null)
             Destroy(this.gameObject);
-        GameData = Resources.Load<GameData>("GameData");
 
         Instance = this;
         
@@ -110,11 +109,3 @@ public class GameManager : MonoBehaviour
 }
 
 public interface IFixedPos{}
-
-public enum EInputPrecision
-{
-    MISSED,
-    OK,
-    NICE,
-    PERFECT
-}
