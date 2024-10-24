@@ -19,14 +19,14 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public float PropsSpeed { get; private set; }
     [field:SerializeField] public Transform SpawnPoint { get; private set; }
 
-    [SerializeField] private TMP_Text _tmp, _scoring;
-    [SerializeField] private PlayableDirector _directorMelody, _directorDrums;
-    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private PlayableDirector[] _directors;
+    [SerializeField] private AudioSource[] _audioSources;
     [SerializeField] private GameData _gameData;
 
     public Action onRealBeat, onPlayerBeat;
     [SerializeField] private SignalReceiver _signals;
     private float _beatStatus = 0f;
+    private int _currentLayer = 0;
     
     public EInputPrecision InputPrecision
     {
@@ -42,32 +42,25 @@ public class GameManager : MonoBehaviour
     
     private float _score = 0f;
     [SerializeField] private float _timeAfterBeatValid;
-
-    private int _currentCurve = 0;
     private void Update()
     {
         _beatStatus = Mathf.Clamp01(_beatStatus - Time.deltaTime / _timeAfterBeatValid);
-        _audioSource.volume = Mathf.Clamp(_audioSource.volume - Time.deltaTime / _timeAfterBeatValid * 5f, 0.3f, 1f);
-        _tmp.text = Math.Round(_beatStatus).ToString(CultureInfo.CurrentCulture);
+        _audioSources[_currentLayer].volume = Mathf.Clamp(_audioSources[_currentLayer].volume - Time.deltaTime / _timeAfterBeatValid * 5f, 0.3f, 1f);
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
             OnPlayerBeat();
             switch (InputPrecision)
             {
                 case EInputPrecision.PERFECT:
-                    _scoring.text = $"<color=#{Color.green.ToHexString()}>PERFECT</color><br>" + _scoring.text;
-                    _audioSource.volume = 1f;
+                    _audioSources[_currentLayer].volume = 1f;
                     break;
                 case EInputPrecision.NICE:
-                    _scoring.text = $"<color=#{Color.cyan.ToHexString()}>NICE</color><br>" + _scoring.text;
-                    _audioSource.volume = .9f;
+                    _audioSources[_currentLayer].volume = .9f;
                     break;
                 case EInputPrecision.OK:
-                    _scoring.text = $"<color=#{Color.yellow.ToHexString()}>OK</color><br>" + _scoring.text;
-                    _audioSource.volume = .8f;
+                    _audioSources[_currentLayer].volume = .8f;
                     break;
                 case EInputPrecision.MISSED:
-                    _scoring.text = $"<color=#{Color.red.ToHexString()}>MISSED</color><br>" + _scoring.text;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -87,16 +80,29 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartBeat()
     {
-        _directorMelody.Play();
-        _directorDrums.Play();
+        foreach (var director in _directors)
+        {
+            director.Play();
+        }
         yield return new WaitForSecondsRealtime(1f);
-        _directorMelody.Pause();
-        _directorDrums.Pause();
-        _directorMelody.time = 0;
-        _directorDrums.time = 0;
+        foreach (var director in _directors)
+        {
+            director.Pause();
+        }
+        foreach (var director in _directors)
+        {
+            director.time = 0;
+        }
         yield return new WaitForSecondsRealtime(1f);
-        _directorMelody.Play();
-        _directorDrums.Play();
+        foreach (var director in _directors)
+        {
+            director.Play();
+        }
+
+        for (int i = 1; i < _audioSources.Length; i++)
+        {
+            _audioSources[i].volume = 0f;
+        }
     }
 
     public void OnRealBeat()

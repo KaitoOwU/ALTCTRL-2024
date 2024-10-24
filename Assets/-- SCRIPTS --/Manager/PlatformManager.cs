@@ -11,7 +11,7 @@ public class PlatformManager : MonoBehaviour
     public int layer = 1;
 
     [BoxGroup("pour eliass <3")]
-    public float décalageSpawnPlateforme = 0f;
+    public float decalageSpawnPlateforme = 0f;
 
     [HideIf("jeSuisGD")]
     public int initialPlatformCount = 2; 
@@ -32,7 +32,7 @@ public class PlatformManager : MonoBehaviour
     void Start()
     {
         _spawnPosition = new Vector3(0, YOffset, 0);
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        _playerTransform = GameManager.Instance.Player.transform;
 
         SpawnPlatform(true);
         for (int i = 0; i < initialPlatformCount - 1; i++)
@@ -81,7 +81,7 @@ public class PlatformManager : MonoBehaviour
                 _offset = 0;
             }
             else
-                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth) + décalageSpawnPlateforme, YOffset, 0);
+                _spawnPosition = new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth) + decalageSpawnPlateforme, YOffset, 0);
 
         }
 

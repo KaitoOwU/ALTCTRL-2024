@@ -12,6 +12,7 @@ public class MainMenuUI : MonoBehaviour
     
     private void Start()
     {
+        Debug.LogError("start");
         SelectButton(0);
     }
 
@@ -19,12 +20,15 @@ public class MainMenuUI : MonoBehaviour
     {
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.PAD_DOWN))
         {
+            Debug.LogError("down");
             SelectButton(Math.Clamp(_currentSelectedButton + 1, 0, _buttons.Count - 1));
         } else if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.PAD_UP))
         {
+            Debug.LogError("up");
             SelectButton(Math.Clamp(_currentSelectedButton - 1, 0, _buttons.Count - 1));
         } else if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY))
         {
+            Debug.LogError("validate");
             _buttons[_currentSelectedButton].onClick?.Invoke();
         }
     }
@@ -50,7 +54,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Kevin");
+        SceneManager.LoadScene("Game");
     }
 
     public void Quit()
