@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
 
@@ -15,53 +17,55 @@ public class GameManager : MonoBehaviour
     [field:SerializeField] public Player Player { get; private set; }
     [field:SerializeField] public float PosY { get; private set; }
     [field:SerializeField] public float PropsSpeed { get; private set; }
-    [field:SerializeField] public Transform SpawnPoint { get; private set; } //TEMP
+    [field:SerializeField] public Transform SpawnPoint { get; private set; }
+
+    [SerializeField] private TMP_Text _tmp, _scoring;
+    [SerializeField] private PlayableDirector _directorMelody, _directorDrums;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private GameData _gameData;
 
     public Action onBeat;
-    [SerializeField] private SignalReceiver _signals; 
+    [SerializeField] private SignalReceiver _signals;
+    private float _beatStatus = 0f;
     
     public EInputPrecision InputPrecision
     {
         get
         {
-            /*if (InputValue >= GameData.perfectTolerance)
+            if (_beatStatus >= _gameData.perfectTolerance)
                 return EInputPrecision.PERFECT;
-            if (InputValue >= GameData.niceTolerance)
+            if (_beatStatus >= _gameData.niceTolerance)
                 return EInputPrecision.NICE;
-            if (InputValue >= GameData.okTolerance)
-                return EInputPrecision.OK;*/
-            return EInputPrecision.MISSED;
+            return _beatStatus >= _gameData.okTolerance ? EInputPrecision.OK : EInputPrecision.MISSED;
         }
     }
     
-    private float _score;
+    private float _score = 0f;
+    [SerializeField] private float _timeAfterBeatValid;
 
     private int _currentCurve = 0;
     private void Update()
     {
+        _beatStatus = Mathf.Clamp01(_beatStatus - Time.deltaTime / _timeAfterBeatValid);
+        _tmp.text = Math.Round(_beatStatus).ToString(CultureInfo.CurrentCulture);
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
-            string debug = _valueOfMusicYippie.text;
-            switch (f)
+            switch (InputPrecision)
             {
-                case < 0.25f:
-                    debug += $"<b><color=#{new Color(0.7f, 0.7f, 0.7f).ToHexString()}> MISSED</color></b>";
-                    break;
-                case EInputPrecision.OK:
-                    Debug.Log($"<b><color=#{Color.yellow.ToHexString()}> {InputPrecision}</color></b>");
-                    _score += 50;
+                case EInputPrecision.PERFECT:
+                    _scoring.text = $"<color=#{Color.green.ToHexString()}>PERFECT</color><br>" + _scoring.text;
                     break;
                 case EInputPrecision.NICE:
-                    Debug.Log($"<b><color=#{Color.cyan.ToHexString()}> {InputPrecision}</color></b>");
-                    _score += 70;
+                    _scoring.text = $"<color=#{Color.cyan.ToHexString()}>NICE</color><br>" + _scoring.text;
                     break;
-                case EInputPrecision.PERFECT:
-                    Debug.Log($"<b><color=#{Color.green.ToHexString()}> {InputPrecision}</color></b>");
-                    _score += 100;
+                case EInputPrecision.OK:
+                    _scoring.text = $"<color=#{Color.yellow.ToHexString()}>OK</color><br>" + _scoring.text;
                     break;
-                case >= 0.9f:
-                    debug += $"<b><color=#{Color.green.ToHexString()}> PERFECT</color></b>";
+                case EInputPrecision.MISSED:
+                    _scoring.text = $"<color=#{Color.red.ToHexString()}>MISSED</color><br>" + _scoring.text;
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }
@@ -72,18 +76,32 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
 
         Instance = this;
-        //StartCoroutine(GameLoop());
-        StartCoroutine(BeatChecker());
+        
+        StartCoroutine(StartBeat());
     }
 
-    private IEnumerator BeatChecker()
+    private IEnumerator StartBeat()
     {
-        while (true)
-        {
-            
-        }
+        _directorMelody.Play();
+        _directorDrums.Play();
+        yield return new WaitForSecondsRealtime(1f);
+        _directorMelody.Pause();
+        _directorDrums.Pause();
+        _directorMelody.time = 0;
+        _directorDrums.time = 0;
+        yield return new WaitForSecondsRealtime(1f);
+        _directorMelody.Play();
+        _directorDrums.Play();
     }
 
+    public void OnBeat()
+    {
+        onBeat?.Invoke();
+
+        _beatStatus = 1f;
+    }
+
+    #if UNITY_EDITOR
     private void OnValidate()
     {
         foreach (var fixedPose in Editor.FindObjectsByType<GameObject>(FindObjectsSortMode.InstanceID)) if(fixedPose.GetComponent<IFixedPos>() != null)
@@ -91,6 +109,15 @@ public class GameManager : MonoBehaviour
             fixedPose.transform.position = new Vector3(fixedPose.transform.position.x, PosY, fixedPose.transform.position.z);
         }
     }
+    #endif
 }
 
 public interface IFixedPos{}
+
+public enum EInputPrecision
+{
+    PERFECT,
+    NICE,
+    OK,
+    MISSED
+}
