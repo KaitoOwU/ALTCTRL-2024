@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     
     private float _score = 0f;
     [SerializeField] private float _timeAfterBeatValid;
+    private float _scorePercent;
+
     private void Update()
     {
         _beatStatus = Mathf.Clamp01(_beatStatus - Time.deltaTime / _timeAfterBeatValid);
@@ -145,6 +147,8 @@ public class GameManager : MonoBehaviour
 
         if (_succesfulBeats > _beatsNeeded[_currentLayer])
         {
+            _scorePercent = _succesfulBeats / _beatsNeeded[_currentLayer];
+            
             _audioSources[_currentLayer].DOFade(0.5f, 1f);
             if (_audioSources.Length > _currentLayer + 1)
             {
@@ -153,7 +157,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("WIN");
+                StartCoroutine(WinManager.Instance.SetWin(_scorePercent));
+                Debug.Log(_scorePercent);
                 DOTween.To(() => _colorAura.GetFloat("_Radius"), x => _colorAura.SetFloat("_Radius", x), 10f, 3f);
             }
         }
