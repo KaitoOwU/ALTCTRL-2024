@@ -112,18 +112,18 @@ public class PlatformManager : MonoBehaviour
     GameObject SelectPrefab(bool isFirstPlatform = false)
     {
         GameObject prefabToReturn;
-        if (_layerJustChanged || isFirstPlatform)
-        {
-            prefabToReturn = ldPrefabs[0];
-            _layerJustChanged = false;
-        }
-        else
-            prefabToReturn = ldPrefabs[layer];
+        //if (_layerJustChanged || isFirstPlatform)
+        //{
+        //    prefabToReturn = ldPrefabs[0];
+        //    _layerJustChanged = false;
+        //}
+        //else
+        prefabToReturn = ldPrefabs[layer];
 
 
         if (_lastPlatform != null && prefabToReturn != _lastGivenPrefab)
         {
-            _offset = (_lastPlatformWidth - prefabToReturn.GetComponent<SpriteRenderer>().bounds.size.x) / 2;
+            _offset = (_lastPlatformWidth - prefabToReturn.GetComponent<SpriteShapeRenderer>().bounds.size.x) / 2;
         }
 
         _lastGivenPrefab = prefabToReturn;
