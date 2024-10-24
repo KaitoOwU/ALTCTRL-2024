@@ -17366,7 +17366,7 @@ Transform:
   m_GameObject: {fileID: 4390752785408489037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 174.4, y: 172.20647, z: 0.3624679}
+  m_LocalPosition: {x: 208.851, y: -0.531, z: 0.3624679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22372,7 +22372,7 @@ Transform:
   m_GameObject: {fileID: 5859247352530106648}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.17729, y: 173.04353, z: 0.3624679}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23945,7 +23945,7 @@ Transform:
   m_GameObject: {fileID: 6148458062765520809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66.94006, y: 209.5813, z: 0.3624679}
+  m_LocalPosition: {x: 101.096, y: 36.778, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24261,7 +24261,7 @@ Transform:
   m_GameObject: {fileID: 6169936177383952271}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 144.15407, y: 173.70358, z: 0.3624679}
+  m_LocalPosition: {x: 178.455, y: 0.91, z: 0.3624679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24375,8 +24375,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 5ec55a5e55c3b434eaff099657713092, type: 3}
   - {fileID: 21300000, guid: 943897318c598eb459b76c809fe28ecc, type: 3}
   m_LocalAABB:
-    m_Center: {x: -11.631966, y: -12.308758, z: 0}
-    m_Extent: {x: 25.139042, y: 49.020065, z: 0}
+    m_Center: {x: -11.312416, y: -12.312855, z: 0}
+    m_Extent: {x: 24.819492, y: 49.01597, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &4970649940021438174
 MonoBehaviour:
@@ -24394,9 +24394,9 @@ MonoBehaviour:
     m_IsOpenEnded: 0
     m_ControlPoints:
     - position: {x: -35.76889, y: 36.359283, z: 0}
-      leftTangent: {x: -2.2547607, y: -0.2579651, z: 0}
-      rightTangent: {x: 2.2780457, y: -2.2978477, z: 0}
-      mode: 2
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
       height: 1
       spriteIndex: 0
       corner: 1
@@ -35240,7 +35240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 490c716018909044c937ab8e7bffa319, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
