@@ -40,6 +40,11 @@ public class PlatformManager : MonoBehaviour
         for (int i = 0; i < initialPlatformCount - 1; i++)
         {
             _spawnPosition = (i == 0) ? Vector3.zero : new Vector3(_lastPlatform.transform.position.x + (_lastPlatformWidth / 2), 0, 0);
+            if (layer == 2)
+            {
+                _spawnPosition.x -= 115;
+                _spawnPosition.y += 3;
+            }
             SpawnPlatform();
         }
     }
@@ -73,7 +78,7 @@ public class PlatformManager : MonoBehaviour
             Destroy(firstPlatform);
             _platforms.RemoveAt(0);
             hasAlreadySpawnedPlatform = false;
-
+            
         }
     }
 
