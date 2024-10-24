@@ -45,23 +45,32 @@ public class Player : MonoBehaviour, IFixedPos
 
     private void PlayMusicParticles()
     {
-        _inputPrecision = _gameManager.InputPrecision;
+        //_inputPrecision = _gameManager.InputPrecision;
 
-        switch (_inputPrecision)
-        {
-            // CHANGE PARTICLE DENSITY
-            case EInputPrecision.PERFECT:
-                break;
-            case EInputPrecision.NICE:
-                break;
-            case EInputPrecision.OK:
-                break;
-            case EInputPrecision.MISSED:
-                break;
-            default:
-                break;
-        }
+        //switch (_inputPrecision)
+        //{
+        //    // CHANGE PARTICLE DENSITY
+        //    case EInputPrecision.PERFECT:
+        //        break;
+        //    case EInputPrecision.NICE:
+        //        break;
+        //    case EInputPrecision.OK:
+        //        break;
+        //    case EInputPrecision.MISSED:
+        //        break;
+        //    default:
+        //        break;
+        //}
+
         // PLAY SYSTEM ANYWAYS
+        _musicParticles.Play();
+        StartCoroutine(StopParticleSystem(_musicParticles));
 
+    }
+
+    private IEnumerator StopParticleSystem(ParticleSystem system) 
+    {
+        yield return new WaitForSeconds(0.1f);
+        system.Stop();
     }
 }
