@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -21,12 +22,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayableDirector[] _directors;
     [SerializeField] private AudioSource[] _audioSources;
+    [SerializeField] private int[] _beatsNeeded;
     [SerializeField] private GameData _gameData;
 
     public Action onRealBeat, onPlayerBeat;
-    [SerializeField] private SignalReceiver _signals;
     private float _beatStatus = 0f;
     private int _currentLayer = 0;
+    [SerializeField] private float _timeReset;
+
+    private int _succesfulBeats = 0;
     
     public EInputPrecision InputPrecision
     {
@@ -45,7 +49,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         _beatStatus = Mathf.Clamp01(_beatStatus - Time.deltaTime / _timeAfterBeatValid);
-        _audioSources[_currentLayer].volume = Mathf.Clamp(_audioSources[_currentLayer].volume - Time.deltaTime / _timeAfterBeatValid * 5f, 0.3f, 1f);
+        _audioSources[_currentLayer].volume = Mathf.Clamp(_audioSources[_currentLayer].volume - Time.deltaTime / _timeAfterBeatValid * 5f, 0.5f, 1f);
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
             OnPlayerBeat();
@@ -53,12 +57,15 @@ public class GameManager : MonoBehaviour
             {
                 case EInputPrecision.PERFECT:
                     _audioSources[_currentLayer].volume = 1f;
+                    _succesfulBeats++;
                     break;
                 case EInputPrecision.NICE:
                     _audioSources[_currentLayer].volume = .9f;
+                    _succesfulBeats++;
                     break;
                 case EInputPrecision.OK:
                     _audioSources[_currentLayer].volume = .8f;
+                    _succesfulBeats++;
                     break;
                 case EInputPrecision.MISSED:
                     break;
@@ -115,6 +122,33 @@ public class GameManager : MonoBehaviour
     public void OnPlayerBeat()
     {
         onPlayerBeat?.Invoke();
+        Debug.Log(InputPrecision);
+    }
+
+    public void ResetBeat()
+    {
+        foreach (var director in _directors)
+        {
+            director.Pause();
+            director.time = _timeReset / 60f;
+            director.Play();
+        }
+
+        if (_succesfulBeats > _beatsNeeded[_currentLayer])
+        {
+            _audioSources[_currentLayer].DOFade(0.5f, 1f);
+            if (_audioSources.Length > _currentLayer + 1)
+            {
+                _currentLayer++;
+                _audioSources[_currentLayer].DOFade(0.1f, 1f);
+            }
+            else
+            {
+                Debug.Log("WIN");
+            }
+        }
+        Debug.Log(_succesfulBeats);
+        _succesfulBeats = 0;
     }
 
     #if UNITY_EDITOR

@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4402248295998906206}
   - component: {fileID: 347815891002392220}
+  - component: {fileID: 2027439742779576849}
   m_Layer: 0
   m_Name: AS_Drums
   m_TagString: Untagged
@@ -172,6 +173,51 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2027439742779576849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516622815854797186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 52d64fc01509d5b418f75f3ca3cc1d0d, type: 2}
+    - {fileID: 11400000, guid: a681fcb30f2fb6441a48488da9ba2a21, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6370129270789877320}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: OnRealBeat
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6370129270789877320}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: ResetBeat
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4906513722683041871
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4599690488553861465}
   - component: {fileID: 8149252713259528215}
+  - component: {fileID: 6305896918023115675}
   m_Layer: 0
   m_Name: AS_Melody
   m_TagString: Untagged
@@ -300,6 +347,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6305896918023115675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906513722683041871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: fc69772d68f8e134c8763224257e3f33, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6370129270789877320}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: OnRealBeat
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7073267907803280632
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +388,6 @@ GameObject:
   - component: {fileID: 9038786952478594395}
   - component: {fileID: 6246577457834298368}
   - component: {fileID: 6370129270789877320}
-  - component: {fileID: 1311641610294042706}
   m_Layer: 0
   m_Name: -- GAME MANAGER --
   m_TagString: Untagged
@@ -365,53 +441,13 @@ MonoBehaviour:
   <PosY>k__BackingField: -1
   <PropsSpeed>k__BackingField: 2
   <SpawnPoint>k__BackingField: {fileID: 0}
-  _directors: []
-  _audioSource: {fileID: 0}
+  _directors:
+  - {fileID: 0}
+  - {fileID: 0}
+  _audioSources:
+  - {fileID: 347815891002392220}
+  - {fileID: 8149252713259528215}
   _gameData: {fileID: 11400000, guid: 0498a5c814706664e8ea3133e3a1ea38, type: 2}
-  _signals: {fileID: 1311641610294042706}
+  _signals: {fileID: 0}
+  _timeReset: 308
   _timeAfterBeatValid: 0.5
---- !u!114 &1311641610294042706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7073267907803280632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 52d64fc01509d5b418f75f3ca3cc1d0d, type: 2}
-    - {fileID: 11400000, guid: fc69772d68f8e134c8763224257e3f33, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6370129270789877320}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: OnRealBeat
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6370129270789877320}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: OnRealBeat
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2

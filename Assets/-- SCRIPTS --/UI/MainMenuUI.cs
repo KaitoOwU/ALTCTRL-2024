@@ -20,15 +20,12 @@ public class MainMenuUI : MonoBehaviour
     {
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.PAD_DOWN))
         {
-            Debug.LogError("down");
             SelectButton(Math.Clamp(_currentSelectedButton + 1, 0, _buttons.Count - 1));
         } else if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.PAD_UP))
         {
-            Debug.LogError("up");
             SelectButton(Math.Clamp(_currentSelectedButton - 1, 0, _buttons.Count - 1));
         } else if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY))
         {
-            Debug.LogError("validate");
             _buttons[_currentSelectedButton].onClick?.Invoke();
         }
     }
