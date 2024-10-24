@@ -66,7 +66,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Users\adves\Documents\Unity\Unity Versions\2022.3.50f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\adves\Documents\Unity\Unity Projects\ALTCTRL-2024&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\adves\Documents\Unity\Unity Projects\ALTCTRL-2024" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -74,7 +74,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Users\adves\Documents\Unity\Unity Versions\2022.3.50f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\adves\Documents\Unity\Unity Projects\ALTCTRL-2024&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\adves\Documents\Unity\Unity Projects\ALTCTRL-2024" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -91,10 +91,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="28992">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="28992" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -129,6 +129,7 @@
       <workItem from="1729769724255" duration="929000" />
       <workItem from="1729770682081" duration="946000" />
       <workItem from="1729772298393" duration="1526000" />
+      <workItem from="1729806602671" duration="2532000" />
     </task>
     <servers />
   </component>

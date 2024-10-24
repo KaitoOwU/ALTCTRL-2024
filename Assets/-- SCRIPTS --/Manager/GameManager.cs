@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         _beatStatus = Mathf.Clamp01(_beatStatus - Time.deltaTime / _timeAfterBeatValid);
-        _audioSource.volume = Mathf.Clamp(_audioSource.volume - Time.deltaTime / _timeAfterBeatValid * 5f, 0.3f, 1f);
+        _audioSources[_currentLayer].volume = Mathf.Clamp(_audioSources[_currentLayer].volume - Time.deltaTime / 3f, 0.3f, 1f);
+        _colorAura.SetFloat("_Radius", Mathf.Clamp(_colorAura.GetFloat("_Radius") - Time.deltaTime / 30f, 0.1f, float.MaxValue));
         //_tmp.text = Math.Round(_beatStatus).ToString(CultureInfo.CurrentCulture);
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -59,17 +60,17 @@ public class GameManager : MonoBehaviour
             {
                 case EInputPrecision.PERFECT:
                     _audioSources[_currentLayer].volume = 1f;
-                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") * 1.05f);
+                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") + 0.025f);
                     _succesfulBeats++;
                     break;
                 case EInputPrecision.NICE:
                     _audioSources[_currentLayer].volume = .9f;
-                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") * 1.03f);
+                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") + 0.015f);
                     _succesfulBeats++;
                     break;
                 case EInputPrecision.OK:
                     _audioSources[_currentLayer].volume = .8f;
-                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") * 1.01f);
+                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") + 0.005f);
                     _succesfulBeats++;
                     break;
                 case EInputPrecision.MISSED:
@@ -118,11 +119,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnRealBeat()
+    public void OnRealBeat(int layer)
     {
-        onRealBeat?.Invoke();
-
-        _beatStatus = 1f;
+        if (_currentLayer == layer)
+        {
+            onRealBeat?.Invoke();
+            _beatStatus = 1f;       
+        }
     }
 
     public void OnPlayerBeat()
