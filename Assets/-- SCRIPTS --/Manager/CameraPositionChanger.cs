@@ -9,8 +9,8 @@ public class CameraPositionChanger : MonoBehaviour
     public static CameraPositionChanger instance;
 
     Camera _cam ;
-    Dictionary<CameraPosition, Vector3> _posDict;
-    Dictionary<CameraPosition, float> _zoomDict;
+    public Dictionary<CameraPosition, Vector3> _posDict;
+    public Dictionary<CameraPosition, float> _zoomDict;
 
     [Header("Camera Positions")]
     [SerializeField] private Vector3 _posOne;
@@ -61,12 +61,12 @@ public class CameraPositionChanger : MonoBehaviour
     [Serializable]
     public enum CameraPosition
     {
-        FIRST,
-        SECOND,
-        THIRD,
-        FOURTH,
-        FIFTH,
-        WIN
+        FIRST = 0,
+        SECOND = 1,
+        THIRD = 2,
+        FOURTH = 3,
+        FIFTH = 4,
+        WIN = 5
     }
 
     public void ChangeCameraPosition(CameraPosition position)

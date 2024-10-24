@@ -137,6 +137,7 @@ public class PlatformManager : MonoBehaviour
     {
         layer++;
         _layerJustChanged = true;
+        CameraPositionChanger.instance.ChangeCameraPosition((CameraPositionChanger.CameraPosition)layer);
     }
 
 
@@ -145,6 +146,7 @@ public class PlatformManager : MonoBehaviour
     {
         layer--;
         _layerJustChanged = true;
+        CameraPositionChanger.instance.ChangeCameraPosition((CameraPositionChanger.CameraPosition)layer);
     }
 #endregion
 }
