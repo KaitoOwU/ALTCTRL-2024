@@ -1365,6 +1365,7 @@ GameObject:
   - component: {fileID: 1284306492}
   - component: {fileID: 1284306491}
   - component: {fileID: 1284306494}
+  - component: {fileID: 1284306495}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1415,7 +1416,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1440,7 +1441,7 @@ Transform:
   m_GameObject: {fileID: 1284306490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 4.5, y: 2.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1490,6 +1491,30 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1284306495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284306490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bacf219d887fb4299878f65589a2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _posOne: {x: -0.04, y: 0.18, z: -10}
+  _posTwo: {x: 4.5, y: 2.71, z: -10}
+  _posThree: {x: 8.91, y: 5.02, z: -10}
+  _posFour: {x: 17.78, y: 10.55, z: -10}
+  _posFive: {x: 26.55, y: 14.98, z: -10}
+  _posWin: {x: 0, y: 0, z: -10}
+  _zoomOne: 5
+  _zoomTwo: 7.5
+  _zoomThree: 10
+  _zoomFour: 15
+  _zoomFive: 20
+  _zoomWin: 0
 --- !u!1 &1397588761 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3814400307403790306, guid: f3bd289fe9db7064ea59885706567bcb,
