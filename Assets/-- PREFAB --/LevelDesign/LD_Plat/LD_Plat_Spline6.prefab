@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: -17.492676, y: 17.825907, z: 0}
+    - position: {x: -17.024841, y: 18.527674, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -116,26 +116,42 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 3.742859, y: 10.189732, z: 0}
-      leftTangent: {x: -6.1108704, y: 3.9129076, z: 0}
-      rightTangent: {x: 13.295349, y: -8.5132675, z: 0}
+    - position: {x: 3.742859, y: 10.5942135, z: 0}
+      leftTangent: {x: -11.935486, y: 5.7707996, z: 0}
+      rightTangent: {x: 14.255859, y: -6.892701, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 44.57019, y: -16.249063, z: 0}
-      leftTangent: {x: -11.190796, y: 6.3225727, z: 0}
-      rightTangent: {x: 5.4246216, y: -3.0647984, z: 0}
+    - position: {x: 44.681946, y: -15.690133, z: 0}
+      leftTangent: {x: -11.220337, y: 6.044485, z: 0}
+      rightTangent: {x: 1.9248657, y: -1.0369406, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 81.12833, y: -19.078913, z: 0}
-      leftTangent: {x: 0, y: 0, z: 0}
+    - position: {x: 53.73349, y: -19.103374, z: 0}
+      leftTangent: {x: -4.183502, y: 0.37503433, z: 0}
+      rightTangent: {x: 0.23800659, y: -0.021530151, z: 0}
+      mode: 1
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 58.5318, y: -19.32159, z: 0}
+      leftTangent: {x: -2.3611145, y: -0.024101257, z: 0}
+      rightTangent: {x: 8.010742, y: 0.08177948, z: 0}
+      mode: 1
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 81.12833, y: -19.078915, z: 0}
+      leftTangent: {x: -7.7650146, y: 0.7219887, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
-      mode: 0
+      mode: 2
       height: 1
       spriteIndex: 0
       corner: 1
