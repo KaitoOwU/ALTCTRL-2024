@@ -8,9 +8,13 @@ public class CameraPositionChanger : MonoBehaviour
 {
     public static CameraPositionChanger instance;
 
+    public float cameraShiftTime = 20f;
+
     Camera _cam ;
     public Dictionary<CameraPosition, Vector3> _posDict;
     public Dictionary<CameraPosition, float> _zoomDict;
+
+    private CameraPosition _currentPosition = CameraPosition.FIRST;
 
     [Header("Camera Positions")]
     [SerializeField] private Vector3 _posOne;
@@ -56,6 +60,8 @@ public class CameraPositionChanger : MonoBehaviour
             { CameraPosition.FIFTH, _zoomFive },
             { CameraPosition.WIN, _zoomWin }
         };
+
+        ChangeCameraPosition(CameraPosition.SECOND);
     }
 
     [Serializable]
@@ -71,8 +77,8 @@ public class CameraPositionChanger : MonoBehaviour
 
     public void ChangeCameraPosition(CameraPosition position)
     {
-        _cam.gameObject.transform.DOMove(_posDict[position], 0.4f).SetEase(Ease.OutElastic, 2f, 0.8f);
-        _cam.DOOrthoSize(_zoomDict[position], 0.5f).SetEase(Ease.OutElastic, 1.6f, 0.8f);
+        _cam.gameObject.transform.DOMove(_posDict[position], cameraShiftTime);
+        _cam.DOOrthoSize(_zoomDict[position], cameraShiftTime);
     }
 
     private void Update()
