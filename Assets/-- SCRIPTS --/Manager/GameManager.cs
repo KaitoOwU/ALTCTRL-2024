@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         _beatStatus = Mathf.Clamp01(_beatStatus - Time.deltaTime / _timeAfterBeatValid);
-        _audioSources[_currentLayer].volume = Mathf.Clamp(_audioSources[_currentLayer].volume - Time.deltaTime / _timeAfterBeatValid * 5f, 0.5f, 1f);
+        _audioSource.volume = Mathf.Clamp(_audioSource.volume - Time.deltaTime / _timeAfterBeatValid * 5f, 0.3f, 1f);
+        //_tmp.text = Math.Round(_beatStatus).ToString(CultureInfo.CurrentCulture);
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
             OnPlayerBeat();
