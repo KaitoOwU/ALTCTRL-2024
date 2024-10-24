@@ -13,18 +13,18 @@ public class FrogLeap : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
         _anim = GetComponent<Animator>();
+        _gameManager.onRealBeat += PlayFrogAnim;
     }
 
     [Button("test anim")]
     private void PlayFrogAnim()
     {
-        //_anim["FrogLeap"].wrapMode = WrapMode.Once;
-        _anim.Play("FrogLeap");
+        _anim.SetBool("isLeaping", true);
     }
 
     private IEnumerator StopLeapAnim()
     {
         yield return new WaitForSeconds(0.1f);
-        _anim.SetBool("isLeap", false);
+        _anim.SetBool("isLeaping", false);
     }
 }
