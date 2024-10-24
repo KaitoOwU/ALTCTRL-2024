@@ -44,18 +44,16 @@ public static class CustomMidi
                        MidiMaster.GetKeyDown(18) ||
                        MidiMaster.GetKeyDown(20) ||
                        MidiMaster.GetKeyDown(22);
-            case MidiKey.PAD_1:
-                return MidiMaster.GetKeyDown(36) ||
-                       MidiMaster.GetKeyDown(40);
-            case MidiKey.PAD_2:
-                return MidiMaster.GetKeyDown(37) ||
-                       MidiMaster.GetKeyDown(41);
-            case MidiKey.PAD_3:
-                return MidiMaster.GetKeyDown(38) ||
-                       MidiMaster.GetKeyDown(42);
-            case MidiKey.PAD_4:
-                return MidiMaster.GetKeyDown(39) ||
-                       MidiMaster.GetKeyDown(43);
+            case MidiKey.PAD_DOWN:
+                return MidiMaster.GetKeyDown(MidiChannel.Ch10, 36) ||
+                       MidiMaster.GetKeyDown(MidiChannel.Ch10, 37) ||
+                       MidiMaster.GetKeyDown(MidiChannel.Ch10, 38) ||
+                       MidiMaster.GetKeyDown(MidiChannel.Ch10, 39);
+            case MidiKey.PAD_UP:
+                return MidiMaster.GetKeyDown(MidiChannel.Ch10, 40) ||
+                       MidiMaster.GetKeyDown(MidiChannel.Ch10, 41) ||
+                       MidiMaster.GetKeyDown(MidiChannel.Ch10, 42) ||
+                       MidiMaster.GetKeyDown(MidiChannel.Ch10, 43);
             default:
                 throw new ArgumentOutOfRangeException(nameof(midiKey), midiKey, null);
         }
@@ -69,10 +67,8 @@ public static class CustomMidi
     public enum MidiKey
     {
         NOTE_KEY,
-        PAD_1,
-        PAD_2,
-        PAD_3,
-        PAD_4
+        PAD_UP,
+        PAD_DOWN
     }
     
 }
