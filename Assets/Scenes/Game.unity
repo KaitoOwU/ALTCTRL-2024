@@ -224,12 +224,12 @@ PrefabInstance:
     - target: {fileID: 7952523338962807341, guid: 6bfeed26cef37f944af6fbc6eeb0bfa7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.48
+      value: -6.7
       objectReference: {fileID: 0}
     - target: {fileID: 7952523338962807341, guid: 6bfeed26cef37f944af6fbc6eeb0bfa7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.48
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7952523338962807341, guid: 6bfeed26cef37f944af6fbc6eeb0bfa7,
         type: 3}
@@ -860,11 +860,11 @@ MonoBehaviour:
   _posFive: {x: 26.55, y: 14.98, z: -10}
   _posWin: {x: 0, y: 0, z: -10}
   _zoomOne: 5
-  _zoomTwo: 7.5
-  _zoomThree: 10
-  _zoomFour: 15
-  _zoomFive: 20
-  _zoomWin: 0
+  _zoomTwo: 9
+  _zoomThree: 15
+  _zoomFour: 20
+  _zoomFive: 25
+  _zoomWin: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
