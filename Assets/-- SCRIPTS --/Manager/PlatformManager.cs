@@ -6,6 +6,7 @@ using UnityEngine.U2D;
 
 public class PlatformManager : MonoBehaviour
 {
+    public GameObject _platformSpawnPos;
     public List<GameObject> ldPrefabs;
     public bool jeSuisGD = false;
     public int layer = 1;
@@ -23,6 +24,7 @@ public class PlatformManager : MonoBehaviour
     public float _scrollSpeed = 5f; 
 
     private GameObject _lastPlatform;
+    private bool hasAlreadySpawnedPlatform = false;
     private GameObject _lastGivenPrefab;
     private float _lastPlatformWidth;
     Vector3 _spawnPosition;
@@ -60,12 +62,18 @@ public class PlatformManager : MonoBehaviour
     {
         GameObject firstPlatform = _platforms[0];
 
+        if(firstPlatform.transform.position.x - firstPlatform.GetComponent<SpriteShapeRenderer>().bounds.size.x / 2 <= _platformSpawnPos.transform.position.x && !hasAlreadySpawnedPlatform)
+        {
+            SpawnPlatform();
+            hasAlreadySpawnedPlatform = true;
+        }
+
         if (firstPlatform.transform.position.x + GetPlatformWidth(firstPlatform) / 2 < _playerTransform.position.x - GetPlatformWidth(firstPlatform))
         {
             Destroy(firstPlatform);
             _platforms.RemoveAt(0);
+            hasAlreadySpawnedPlatform = false;
 
-            SpawnPlatform();
         }
     }
 
