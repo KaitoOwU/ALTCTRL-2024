@@ -3,28 +3,81 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using NaughtyAttributes;
+using DG.Tweening;
 
 public class FrogLeap : MonoBehaviour
 {
-    [SerializeField] Animator _anim;
-    GameManager _gameManager;
+    public Sprite[] sprites; 
+    SpriteRenderer spriteRenderer; 
 
-    private void Start()
+    public float[] timings;  
+
+    private int currentIndex = 0;
+    private bool isReversing = false; 
+    private GameManager _gameManager;
+
+    private void Awake()
     {
-        _gameManager = GameManager.Instance;
-        _anim = GetComponent<Animator>();
-        _gameManager.onRealBeat += PlayFrogAnim;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        _gameManager = FindObjectOfType<GameManager>();
+
+        _gameManager.onRealBeat += StartLooping;
+
     }
 
-    [Button("test anim")]
-    private void PlayFrogAnim()
+    [Button("Start Looping")]
+    public void StartLooping()
     {
-        _anim.SetBool("isLeaping", true);
+        if (sprites.Length == 3 && timings.Length == 3)
+        {
+            currentIndex = 0;  
+            isReversing = false; 
+            LoopOnce();
+            Debug.Log("Looping started.");
+        }
+        else
+        {
+            Debug.LogError("Please assign 3 sprites and 3 timing values.");
+        }
     }
 
-    private IEnumerator StopLeapAnim()
+    private void LoopOnce()
     {
-        yield return new WaitForSeconds(0.1f);
-        _anim.SetBool("isLeaping", false);
+        SetSprite(currentIndex);
+
+        DOVirtual.DelayedCall(timings[currentIndex], () =>
+        {
+            if (!isReversing)
+            {
+                currentIndex++;
+                if (currentIndex == sprites.Length)
+                {
+                    isReversing = true;
+                }
+            }
+            else
+            {
+                currentIndex--;
+                if (currentIndex < 0)
+                {
+                    return;
+                }
+            }
+
+            LoopOnce();
+            Debug.Log("Current Index: " + currentIndex);    
+        });
+    }
+
+    private void SetSprite(int index)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = sprites[index];
+        }
+        else
+        {
+            Debug.LogError("No Image or SpriteRenderer assigned.");
+        }
     }
 }
