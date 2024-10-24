@@ -109,10 +109,10 @@ public class PlatformManager : MonoBehaviour
         }
     }
 
-    GameObject SelectPrefab()
+    GameObject SelectPrefab(bool isFirstPlatform = false)
     {
         GameObject prefabToReturn;
-        if (_layerJustChanged)
+        if (_layerJustChanged || isFirstPlatform)
         {
             prefabToReturn = ldPrefabs[0];
             _layerJustChanged = false;
