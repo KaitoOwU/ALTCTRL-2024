@@ -6,21 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b88c5e58-6aa1-40bd-a451-8507875c6758" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Drums.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Drums.playable" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Melody.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Melody.playable" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/PlayerCharacter/Animation/PlayerCharacterWalkAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/PlayerCharacter/Animation/PlayerCharacterWalkAnimation.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAuraMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/ColorAuraMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/TextFromColoredToWhite.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/ShaderGraph/TextFromColoredToWhite.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/Drums/LD_Drums.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/Drums/LD_Drums.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/LD Plat .prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/LD Plat .prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/LD_Plat/LD_Plat_Spline1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/LD_Plat/LD_Plat_Spline1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/LD_Transition.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/LD_Transition.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/Melody/LD_Intro.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/Melody/LD_Intro.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/Melody/LD_Refrain.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/LevelDesign/Melody/LD_Refrain.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-- PREFAB --/Objects/-- GAME MANAGER --.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- PREFAB --/Objects/-- GAME MANAGER --.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/UI/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/UI/MainMenuUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

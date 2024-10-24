@@ -351,7 +351,7 @@ Transform:
   m_GameObject: {fileID: 551513841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.55, y: -1, z: 0}
+  m_LocalPosition: {x: -5.55, y: -1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -518,8 +518,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2c89161ae62ffc340873aacf2f694470, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -614,8 +614,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5831e75f5d4b0754a87813f2aa26e884, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -710,8 +710,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 42e881bb81bc1974f9129dd6c2b22ea0, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -806,8 +806,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e5ee4b3dd6b7c77489078209c29d54fa, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -906,11 +906,6 @@ PrefabInstance:
       objectReference: {fileID: 551513845}
     - target: {fileID: 6370129270789877320, guid: faffdba87c0722e43985ddb7407c3267,
         type: 3}
-      propertyPath: _beatsNeeded.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6370129270789877320, guid: faffdba87c0722e43985ddb7407c3267,
-        type: 3}
       propertyPath: _directors.Array.data[0]
       value: 
       objectReference: {fileID: 1249278723}
@@ -919,16 +914,6 @@ PrefabInstance:
       propertyPath: _directors.Array.data[1]
       value: 
       objectReference: {fileID: 119358786}
-    - target: {fileID: 6370129270789877320, guid: faffdba87c0722e43985ddb7407c3267,
-        type: 3}
-      propertyPath: _beatsNeeded.Array.data[0]
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 6370129270789877320, guid: faffdba87c0722e43985ddb7407c3267,
-        type: 3}
-      propertyPath: _beatsNeeded.Array.data[1]
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 7073267907803280632, guid: faffdba87c0722e43985ddb7407c3267,
         type: 3}
       propertyPath: m_Name

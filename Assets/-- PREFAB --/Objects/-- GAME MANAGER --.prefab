@@ -447,7 +447,8 @@ MonoBehaviour:
   _audioSources:
   - {fileID: 347815891002392220}
   - {fileID: 8149252713259528215}
+  _beatsNeeded: 110000000f000000
   _gameData: {fileID: 11400000, guid: 0498a5c814706664e8ea3133e3a1ea38, type: 2}
-  _signals: {fileID: 0}
   _timeReset: 308
+  _colorAura: {fileID: 2100000, guid: b87e569a323f46f40a3bfdc55ea5469f, type: 2}
   _timeAfterBeatValid: 0.5

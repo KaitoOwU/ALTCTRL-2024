@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private float _beatStatus = 0f;
     private int _currentLayer = 0;
     [SerializeField] private float _timeReset;
+    [SerializeField] private Material _colorAura;
 
     private int _succesfulBeats = 0;
     
@@ -57,14 +58,17 @@ public class GameManager : MonoBehaviour
             {
                 case EInputPrecision.PERFECT:
                     _audioSources[_currentLayer].volume = 1f;
+                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") * 1.05f);
                     _succesfulBeats++;
                     break;
                 case EInputPrecision.NICE:
                     _audioSources[_currentLayer].volume = .9f;
+                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") * 1.03f);
                     _succesfulBeats++;
                     break;
                 case EInputPrecision.OK:
                     _audioSources[_currentLayer].volume = .8f;
+                    _colorAura.SetFloat("_Radius", _colorAura.GetFloat("_Radius") * 1.01f);
                     _succesfulBeats++;
                     break;
                 case EInputPrecision.MISSED:
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         
         StartCoroutine(StartBeat());
+        _colorAura.SetFloat("_Radius", 0.15f);
     }
 
     private IEnumerator StartBeat()
@@ -145,6 +150,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 Debug.Log("WIN");
+                DOTween.To(() => _colorAura.GetFloat("_Radius"), x => _colorAura.SetFloat("_Radius", x), 10f, 3f);
             }
         }
         Debug.Log(_succesfulBeats);
