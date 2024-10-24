@@ -7,21 +7,8 @@
     <list default="true" id="b88c5e58-6aa1-40bd-a451-8507875c6758" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ALTCTRL-2024/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Drums.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Drums.playable" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Melody.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- ART --/Music/Hooked On a Feeling/Timeline/TL_Melody.playable" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-- SCRIPTS --/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Can't Stop - Red Hot Chili Peppers.mid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Can't Stop - Red Hot Chili Peppers.mid.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/GameData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/GameData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Soundtrackers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Soundtrackers/Untitled(3).asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Soundtrackers/Untitled(3).asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Eliass.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Eliass.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Kevin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Kevin.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +122,7 @@
       <workItem from="1729603270272" duration="1786000" />
       <workItem from="1729667542465" duration="1602000" />
       <workItem from="1729684806083" duration="5124000" />
+      <workItem from="1729754461474" duration="1278000" />
     </task>
     <servers />
   </component>

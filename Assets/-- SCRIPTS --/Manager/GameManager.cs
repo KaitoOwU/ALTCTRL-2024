@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameData _gameData;
 
-    public Action onBeat;
+    public Action onRealBeat, onPlayerBeat;
     [SerializeField] private SignalReceiver _signals;
     private float _beatStatus = 0f;
     
@@ -47,19 +47,24 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         _beatStatus = Mathf.Clamp01(_beatStatus - Time.deltaTime / _timeAfterBeatValid);
+        _audioSource.volume = Mathf.Clamp(_audioSource.volume - Time.deltaTime / _timeAfterBeatValid * 5f, 0.3f, 1f);
         _tmp.text = Math.Round(_beatStatus).ToString(CultureInfo.CurrentCulture);
         if (CustomMidi.GetKeyDown(CustomMidi.MidiKey.NOTE_KEY) || Input.GetKeyDown(KeyCode.Space))
         {
+            OnPlayerBeat();
             switch (InputPrecision)
             {
                 case EInputPrecision.PERFECT:
                     _scoring.text = $"<color=#{Color.green.ToHexString()}>PERFECT</color><br>" + _scoring.text;
+                    _audioSource.volume = 1f;
                     break;
                 case EInputPrecision.NICE:
                     _scoring.text = $"<color=#{Color.cyan.ToHexString()}>NICE</color><br>" + _scoring.text;
+                    _audioSource.volume = .9f;
                     break;
                 case EInputPrecision.OK:
                     _scoring.text = $"<color=#{Color.yellow.ToHexString()}>OK</color><br>" + _scoring.text;
+                    _audioSource.volume = .8f;
                     break;
                 case EInputPrecision.MISSED:
                     _scoring.text = $"<color=#{Color.red.ToHexString()}>MISSED</color><br>" + _scoring.text;
@@ -94,11 +99,16 @@ public class GameManager : MonoBehaviour
         _directorDrums.Play();
     }
 
-    public void OnBeat()
+    public void OnRealBeat()
     {
-        onBeat?.Invoke();
+        onRealBeat?.Invoke();
 
         _beatStatus = 1f;
+    }
+
+    public void OnPlayerBeat()
+    {
+        onPlayerBeat?.Invoke();
     }
 
     #if UNITY_EDITOR
