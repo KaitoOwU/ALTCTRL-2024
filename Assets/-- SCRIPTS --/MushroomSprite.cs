@@ -11,12 +11,21 @@ public class MushroomSprite : MonoBehaviour
     SpriteRenderer _sr;
     float _moveUpOffset;
     float _moveDownOffset;
+    GameManager _gameManager;
 
     private void Start()
     {
+        _gameManager = GameManager.Instance;
+        _gameManager.onRealBeat += StartWarp;
+
         _sr = GetComponent<SpriteRenderer>();
         _sr.sprite = mushroomSprites[Random.Range(0, mushroomSprites.Count - 1)];
         _moveUpOffset = _sr.bounds.size.y * -0.1f;
+    }
+
+    private void OnDestroy()
+    {
+        _gameManager.onRealBeat -= StartWarp;
     }
 
     [Button("warp")]

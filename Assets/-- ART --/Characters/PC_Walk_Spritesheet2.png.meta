@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 782e184f76cda7946914356d3ae1b493
+guid: a2beb1d2187509247af60f7d1e0e588c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 650
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PC_Walk_Spritesheet_0
+      name: PC_Walk_Spritesheet2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e10eadd970e69b4f9320f4fa71bbfb2
-      internalID: 342468347
+      spriteID: 801e0fbe677fa084d97fcf92f4d1f732
+      internalID: 1229962640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC_Walk_Spritesheet_1
+      name: PC_Walk_Spritesheet2_1
       rect:
         serializedVersion: 2
         x: 1600
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fba2cf75dd587c468f6a65297fbe1b4
-      internalID: -1394799128
+      spriteID: 059a17ccbfbecaa48b6b050b072c73d4
+      internalID: -2079615205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC_Walk_Spritesheet_2
+      name: PC_Walk_Spritesheet2_2
       rect:
         serializedVersion: 2
         x: 3200
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24177fd45783ecb47a00a65c1de2ad48
-      internalID: 1232292517
+      spriteID: c0e384f1a4632484dabe9fc75113e69a
+      internalID: 1701160258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC_Walk_Spritesheet_3
+      name: PC_Walk_Spritesheet2_3
       rect:
         serializedVersion: 2
         x: 4800
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fd7ce0c6047cf047836f79d8c21ad81
-      internalID: 12072916
+      spriteID: 806a9ffd76f99c742aad1bddb1be3478
+      internalID: 1047084534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC_Walk_Spritesheet_4
+      name: PC_Walk_Spritesheet2_4
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a57d8df7db2fb847b301d33c6986d46
-      internalID: -718337577
+      spriteID: 795691d0565762c46b409cd5107af857
+      internalID: -1856417215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC_Walk_Spritesheet_5
+      name: PC_Walk_Spritesheet2_5
       rect:
         serializedVersion: 2
         x: 1600
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e03ed98987aece9418d722726c24dbb6
-      internalID: -110527027
+      spriteID: 85d9e6cbeb8968f4ea27125ca64ee67d
+      internalID: -934175158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC_Walk_Spritesheet_6
+      name: PC_Walk_Spritesheet2_6
       rect:
         serializedVersion: 2
         x: 3200
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a30c8dd643dd9d544abca6998d540187
-      internalID: 1624327802
+      spriteID: 1615fdc96da9e3143b4ac89b40543bb8
+      internalID: 1961073368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC_Walk_Spritesheet_7
+      name: PC_Walk_Spritesheet2_7
       rect:
         serializedVersion: 2
         x: 4800
@@ -258,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 255477c4803cc63448f109939af154e9
-      internalID: 284003215
+      spriteID: bda847fd55175a0409c7ab3e1b0b713d
+      internalID: -110743013
       vertices: []
       indices: 
       edges: []
@@ -275,14 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PC_Walk_Spritesheet_0: 342468347
-      PC_Walk_Spritesheet_1: -1394799128
-      PC_Walk_Spritesheet_2: 1232292517
-      PC_Walk_Spritesheet_3: 12072916
-      PC_Walk_Spritesheet_4: -718337577
-      PC_Walk_Spritesheet_5: -110527027
-      PC_Walk_Spritesheet_6: 1624327802
-      PC_Walk_Spritesheet_7: 284003215
+      PC_Walk_Spritesheet2_0: 1229962640
+      PC_Walk_Spritesheet2_1: -2079615205
+      PC_Walk_Spritesheet2_2: 1701160258
+      PC_Walk_Spritesheet2_3: 1047084534
+      PC_Walk_Spritesheet2_4: -1856417215
+      PC_Walk_Spritesheet2_5: -934175158
+      PC_Walk_Spritesheet2_6: 1961073368
+      PC_Walk_Spritesheet2_7: -110743013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
